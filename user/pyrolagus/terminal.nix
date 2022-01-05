@@ -1,0 +1,48 @@
+{ config, pkgs, lib, ...}:
+{
+  programs.zsh = {
+    enable = true;
+    autocd = true;
+    enableAutosuggestions = true;
+    enableSyntaxHighlighting = true;
+
+    shellAliases = {
+      e = "exa";
+      ns = "nix search nixpkgs";
+      z = "zoxide";
+    };
+
+    plugins = [ {
+      name = "atuin";
+      src = pkgs.atuin.src;
+    } ];
+    
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" ];
+      theme = "robbyrussell";
+    };
+  };
+
+  programs.bat = {
+    enable = true;
+  };
+
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      font.size = 14;
+    };
+  };
+
+  programs.zoxide.enable = true;
+
+  programs.neovim = {
+    enable = true;
+    extraConfig = ''
+      set tabstop=2
+      set shiftwidth=2
+      set expandtab
+    '';
+  };
+}
