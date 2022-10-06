@@ -82,7 +82,7 @@ in {
       ''
       #!/bin/sh
       cd "$NIXOS_CONFIG_PATH"
-      nix flake update
+      nix flake update --commit-lock-file
       '')
 
     (writeScriptBin "system-flake-rebuild"
