@@ -141,7 +141,6 @@ in {
     config = {
       profile = "gpu-hq";
       ytdl-format = "bestvideo+bestaudio";
-      cache-default = 4000000;
       alang = "ja, jap, eng, en, ger, de";
     };
   };
