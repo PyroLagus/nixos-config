@@ -89,9 +89,8 @@ in {
       ''
       #!/bin/sh
       . "$(git --exec-path)/git-sh-setup"
-      pushd "$NIXOS_CONFIG_PATH"
+      cd "$NIXOS_CONFIG_PATH"
       require_clean_work_tree "rebuild"
-      popd
       nixos-rebuild switch --use-remote-sudo --flake "$NIXOS_CONFIG_PATH/?submodules=1#"
       '')
   ];
