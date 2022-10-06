@@ -88,12 +88,11 @@ in {
     (writeScriptBin "system-flake-rebuild"
       ''
       #!/bin/sh
-      . "$(git --exec-path)/git-sh-setup"
       cd "$NIXOS_CONFIG_PATH"
+      . "$(git --exec-path)/git-sh-setup"
       require_clean_work_tree "rebuild"
-      pushd ./private
+      cd ./private
       require_clean_work_tree "rebuild"
-      popd
       nixos-rebuild switch --use-remote-sudo --flake "$NIXOS_CONFIG_PATH/?submodules=1#"
       '')
   ];
