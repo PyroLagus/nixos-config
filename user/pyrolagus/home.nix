@@ -18,55 +18,75 @@ in {
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    alacritty
     ardour
+    musescore
+    rosegarden
+    spotify
+
+    
+    
     atool
     atuin
     blender
     bluez-tools
     cadence
     carla
-    comma
     (discord.override {nss = nss_latest;})
-    eiskaltdcpp
+
+    comma
+    niv
+    nix-index
+
+    bat
+    bottom-rs
+    du-dust
+    dutree
     fd
+    hyperfine
+    kalker
+    sd
+    skim
+    tokei
+    ripgrep-all
+
+    mc
+    httpie
+    khal
+    unzip
+
+    eiskaltdcpp
+    
     ghidra-bin
     git-crypt
     helm
     helvum
-    httpie
+    
     imv
     inetutils
     inkscape
-    kalker
-    khal
+    
     libnotify
     lldb
     lmms
-    mc
     milkytracker
     minecraft
     mitmproxy
     mosh
-    musescore
+    
     neofetch
-    niv
-    nix-index
+
     obsidian
     passff-host
     pavucontrol
     pferd
-    psmisc
     qjackctl
     qsynth
-    ripgrep-all
+    
     rr
-    rosegarden
-    spotify
     tdesktop
     termdown
     thunderbird
-    unzip
+    
     weechat
     wofi
     wofi-emoji
@@ -75,8 +95,11 @@ in {
     xsv
     yoshimi
     youtube-dl
-    wezterm
+    
     zam-plugins
+
+  alacritty
+    wezterm
 
     (writeScriptBin "system-flake-update"
       ''

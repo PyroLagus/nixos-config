@@ -148,6 +148,7 @@
     man-pages-posix
     ncdu
     nitrokey-app
+    psmisc
     usbguard
     usbutils
     vim
