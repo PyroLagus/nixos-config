@@ -144,6 +144,7 @@ in {
     userEmail = "mail@pyrolagus.de";
     extraConfig = {
       init.defaultBranch = "main";
+      submodule.recurse = true;
     };
   };
 
