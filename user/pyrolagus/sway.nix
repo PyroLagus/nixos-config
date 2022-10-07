@@ -161,8 +161,19 @@
     '';
   };
 
-  services.swayidle = {
+  services.swayidle =
+  let
+    lockCommand = "${pkgs.swaylock}/bin/swaylock -fF --image ${./wallpaper.jpg}";
+  in
+  {
     enable = true;
+    events = [
+      { event = "before-sleep"; command = lockCommand; }
+      { event = "lock"; command = "lock"; }
+    ];
+    timeouts = [
+      { timeout = 60; command = lockCommand; }
+    ];
   };
 
   programs.waybar = {
