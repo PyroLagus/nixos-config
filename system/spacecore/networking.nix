@@ -58,7 +58,7 @@ in
       reflector = true;
       publish = {
         enable = true;
-      }
+      };
     };
 
     openssh.enable = true;
