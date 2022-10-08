@@ -6,7 +6,6 @@ let
 
 in {
   imports = [
-    ../../private/user/${username}/ssh_hosts.nix
     ./sway.nix
     ./terminal.nix
   ];
