@@ -132,13 +132,6 @@
   # Required for pipewire.
   security.rtkit.enable = true;
 
-  # Define a user account.
-  users.users.pyrolagus = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "video" "nitrokey" ];
-    shell = pkgs.zsh;
-  };
-
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     agenix

@@ -37,6 +37,7 @@
           ./system/spacecore/configuration.nix
           ./system/spacecore/networking.nix
           ./system/spacecore/gaming.nix
+          ./private/system/spacecore/users.nix
 
           {
             nix.registry.nixpkgs.flake = nixpkgs;
