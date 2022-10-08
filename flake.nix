@@ -40,6 +40,7 @@
           ./system/spacecore/networking.nix
           ./system/spacecore/gaming.nix
           ./private/system/spacecore/users.nix
+          ./private/system/common/wireless_networks.nix
           #private.nixosModules.syscfg.users
           #{
           #  config.syscfg.system = "spacecore";
