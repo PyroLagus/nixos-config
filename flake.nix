@@ -12,7 +12,7 @@
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
 
-    private.url = "git+ssh://git@github.com:PyroLagus/nixos-config-private.git";
+    private.url = "git+ssh://git@github.com/PyroLagus/nixos-config-private.git";
   };
   
   outputs = inputs@{self, nixpkgs, home-manager, agenix, private, ...}:
