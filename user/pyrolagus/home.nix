@@ -21,8 +21,6 @@ in {
     musescore
     rosegarden
     spotify
-
-    
     
     atool
     atuin
@@ -97,7 +95,7 @@ in {
     
     zam-plugins
 
-  alacritty
+    alacritty
     wezterm
 
     (writeScriptBin "system-flake-update"
