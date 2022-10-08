@@ -42,8 +42,10 @@
           ./system/spacecore/configuration.nix
           ./system/spacecore/networking.nix
           ./system/spacecore/gaming.nix
-          ./private/system/spacecore/users.nix
-          ./private/system/common/wireless_networks.nix
+          private.nixosModules.system.spacecore.users
+          private.nixosModules.system.common.wirelessNetworks
+          #./private/system/spacecore/users.nix
+          #./private/system/common/wireless_networks.nix
           #private.nixosModules.syscfg.users
           #{
           #  config.syscfg.system = "spacecore";
@@ -61,7 +63,7 @@
             home-manager.users.pyrolagus.imports = [
               ./user/pyrolagus/home.nix
               #./private/user/pyrolagus/ssh_hosts.nix
-              private.nixosModules.syscfg.pyrolagus
+              private.nixosModules.user.pyrolagus.ssh
             ];
           }
         ];
