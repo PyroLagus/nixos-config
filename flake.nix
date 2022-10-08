@@ -11,11 +11,9 @@
 
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
-
-    private.url = "github:PyroLagus/nixos-config-private";
   };
   
-  outputs = inputs@{self, nixpkgs, home-manager, agenix, private, ...}:
+  outputs = inputs@{self, nixpkgs, home-manager, agenix, ...}:
   let
     system = "x86_64-linux";
     #mkUser = username: {
