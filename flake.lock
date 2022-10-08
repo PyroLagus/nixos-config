@@ -107,11 +107,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1665268805,
-        "narHash": "sha256-9RCkIsWLO+I0vPEN44Td05d6gW+HenBt1OaS8L0w+AU=",
+        "lastModified": 1665268911,
+        "narHash": "sha256-zAbPzb9kes6b7rRwRpJOYqtQt9hlfuvMSnOcaqs8k6Y=",
         "ref": "refs/heads/main",
-        "rev": "03511beb90f1e3cc7e91f3cf066462b729aa118d",
-        "revCount": 9,
+        "rev": "0e7c712532b8aae0b1c11dea483e1b9a4d93efde",
+        "revCount": 10,
         "type": "git",
         "url": "file:///home/pyrolagus/.config/dotfiles/private.flake"
       },
