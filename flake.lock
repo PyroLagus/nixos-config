@@ -71,29 +71,13 @@
         "type": "indirect"
       }
     },
-    "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1664989420,
-        "narHash": "sha256-Q8IxomUjjmewsoJgO3htkXLfCckQ7HkDJ/ZhdYVf/fA=",
-        "path": "/nix/store/7xlnfnx4pc3bv0kp719jr1r8jbsxkv54-source",
-        "rev": "37bd39839acf99c5b738319f42478296f827f274",
-        "type": "path"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
-      }
-    },
     "private": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_2"
-      },
       "locked": {
-        "lastModified": 1665191012,
-        "narHash": "sha256-PsbOpZDmxmXqdaFkQmipvI2JSajgg12FMd+GkJwaMnY=",
+        "lastModified": 1665191069,
+        "narHash": "sha256-A9LDufrZclYDUiQrVmIwPocXVmjzd/arYVxCYn42fiE=",
         "ref": "refs/heads/main",
-        "rev": "1407073739b998ea678e258b710f4833a5b14f94",
-        "revCount": 14,
+        "rev": "3e8f15f12e8414285758021725166b4f0ffcf9d8",
+        "revCount": 15,
         "type": "git",
         "url": "ssh://git@github.com/PyroLagus/nixos-config-private.git"
       },
