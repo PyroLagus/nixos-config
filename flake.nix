@@ -59,6 +59,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.pyrolagus.imports = [
               ./user/pyrolagus/home.nix
+              ./private/user/pyrolagus/ssh_hosts.nix
             ];
           }
         ];
