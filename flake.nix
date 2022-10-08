@@ -18,6 +18,7 @@
   outputs = inputs@{self, nixpkgs, home-manager, agenix, private, ...}:
   let
     system = "x86_64-linux";
+    unstable-overlay = final: prev: { unstable = nixpkgs-unstable.legacyPackages."${system}"; };
     #mkUser = username: {
     #  home-manager.users."${username}" = (import ./home-manager/common.nix) // (import ./home-manager/users/"${username}");
     #};
@@ -29,7 +30,7 @@
         pkgs = import nixpkgs {
           inherit system;
 	        config.allowUnfree = true;
-	        overlays = [ agenix.overlay ];
+	        overlays = [ agenix.overlay unstable-overlay ];
       	};
 
         modules = [
