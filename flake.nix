@@ -32,7 +32,7 @@
         pkgs = import nixpkgs {
           inherit system;
 	        config.allowUnfree = true;
-	        overlays = [ agenix.overlay unstable-overlay main-overlay ];
+	        overlays = [ agenix.overlay unstable-overlay main-overlay factorio-overlay ];
       	};
 
         modules = [
