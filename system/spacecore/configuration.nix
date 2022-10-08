@@ -5,6 +5,7 @@
 { config, pkgs, lib, nixpkgs, ... }:
 
  {
+  users.mutableUsers = false;
 
   hardware = {
     bluetooth.enable = true;
