@@ -55,10 +55,6 @@ in
     avahi = {
       enable = true;
       nssmdns = true;
-      reflector = true;
-      publish = {
-        enable = true;
-      };
     };
 
     openssh.enable = true;
