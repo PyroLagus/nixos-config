@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "nixpkgs/nixpkgs-unstable";
-    #nixpkgs-master.url = "github:NixOS/nixpkgs";
+    nixpkgs-main.url = "github:NixOS/nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -15,10 +15,11 @@
     private.url = "/home/pyrolagus/.config/dotfiles/private.flake";
   };
   
-  outputs = inputs@{self, nixpkgs, nixpkgs-unstable, home-manager, agenix, private, ...}:
+  outputs = inputs@{self, nixpkgs, nixpkgs-unstable, nixpkgs-main, home-manager, agenix, private, ...}:
   let
     system = "x86_64-linux";
     unstable-overlay = final: prev: { unstable = nixpkgs-unstable.legacyPackages."${system}"; };
+    main-overlay = final: prev: { main = nixpkgs-main.legacyPackages."${system}"; };
     #mkUser = username: {
     #  home-manager.users."${username}" = (import ./home-manager/common.nix) // (import ./home-manager/users/"${username}");
     #};
@@ -30,7 +31,7 @@
         pkgs = import nixpkgs {
           inherit system;
 	        config.allowUnfree = true;
-	        overlays = [ agenix.overlay unstable-overlay ];
+	        overlays = [ agenix.overlay unstable-overlay main-overlay ];
       	};
 
         modules = [
