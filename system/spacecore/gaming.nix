@@ -3,6 +3,8 @@
   programs.steam.enable = true;
   programs.gamemode.enable = true;
   
+  services.factorio.openFirewall = true;
+
   services.udev.packages = [
       (pkgs.writeTextFile {
         name = "extra-steam-input-rules";
