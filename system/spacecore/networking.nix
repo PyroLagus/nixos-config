@@ -11,11 +11,6 @@ let
   };
 in
 {
-  #imports =
-  #  [
-  #    ../../private/system/common/wireless_networks.nix
-  #  ];
-
   networking = {
     hostName = "spacecore";
     wireless = {
@@ -60,6 +55,10 @@ in
     avahi = {
       enable = true;
       nssmdns = true;
+      reflector = true;
+      publish = {
+        enable = true;
+      }
     };
 
     openssh.enable = true;
