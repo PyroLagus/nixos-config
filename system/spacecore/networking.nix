@@ -11,10 +11,10 @@ let
   };
 in
 {
-  imports =
-    [
-      ../../private/system/common/wireless_networks.nix
-    ];
+  #imports =
+  #  [
+  #    ../../private/system/common/wireless_networks.nix
+  #  ];
 
   networking = {
     hostName = "spacecore";
