@@ -41,9 +41,9 @@
           ./system/spacecore/gaming.nix
           ./private/system/spacecore/users.nix
           private.nixosModules.syscfg.users
-          {
-            config.syscfg.system = "spacecore";
-          }
+          #{
+          #  config.syscfg.system = "spacecore";
+          #}
           {
             nix.registry.nixpkgs.flake = nixpkgs;
           }
