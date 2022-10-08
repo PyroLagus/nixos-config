@@ -12,7 +12,7 @@
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
 
-    private.url = "../nixos-private.flake";
+    private.url = "path:../nixos-private.flake";
   };
   
   outputs = inputs@{self, nixpkgs, home-manager, agenix, private, ...}:
