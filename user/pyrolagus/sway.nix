@@ -172,7 +172,7 @@
       { event = "lock"; command = "lock"; }
     ];
     timeouts = [
-      { timeout = 60; command = lockCommand; }
+      { timeout = 300; command = lockCommand; }
     ];
   };
 
