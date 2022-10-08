@@ -98,6 +98,8 @@ in {
     alacritty
     wezterm
 
+    factorio
+
     (writeScriptBin "system-flake-update"
       ''
       #!/bin/sh
