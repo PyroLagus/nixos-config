@@ -12,6 +12,9 @@
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
 
+    rust-overlay.url = "github:oxalica/rust-overlay";
+    rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
+
     private.url = "/home/pyrolagus/.config/dotfiles/private.flake";
   };
   
@@ -32,7 +35,13 @@
         pkgs = import nixpkgs {
           inherit system;
 	        config.allowUnfree = true;
-	        overlays = [ agenix.overlay unstable-overlay main-overlay factorio-overlay ];
+	        overlays = [
+            agenix.overlay
+            unstable-overlay
+            main-overlay
+            factorio-overlay
+            rust-overlay.overlays.default
+            ];
       	};
 
         modules = [

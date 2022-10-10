@@ -100,6 +100,8 @@ in {
 
     factorio
 
+    rust-bin.selectLatestNightlyWith (toolchain: toolchain.default)
+
     (writeScriptBin "system-flake-update"
       ''
       #!/bin/sh
