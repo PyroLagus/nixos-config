@@ -18,7 +18,7 @@
     private.url = "/home/pyrolagus/.config/dotfiles/private.flake";
   };
   
-  outputs = inputs@{self, nixpkgs, nixpkgs-unstable, nixpkgs-main, home-manager, agenix, private, ...}:
+  outputs = inputs@{self, nixpkgs, nixpkgs-unstable, nixpkgs-main, home-manager, agenix, rust-overlay, private, ...}:
   let
     system = "x86_64-linux";
     unstable-overlay = final: prev: { unstable = nixpkgs-unstable.legacyPackages."${system}"; };
