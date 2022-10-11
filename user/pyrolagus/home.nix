@@ -46,6 +46,8 @@ in {
     tokei
     ripgrep-all
 
+    helix
+
     mc
     httpie
     khal
