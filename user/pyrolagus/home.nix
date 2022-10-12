@@ -94,6 +94,7 @@ in {
     xsv
     yoshimi
     youtube-dl
+    yt-dlp
     
     zam-plugins
 
