@@ -35,7 +35,7 @@ in {
     nix-index
 
     bat
-    bottom-rs
+    bottom
     du-dust
     dutree
     fd
