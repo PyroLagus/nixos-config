@@ -16,6 +16,10 @@ in {
   home.stateVersion = "22.05";
   programs.home-manager.enable = true;
 
+  nixpkgs.config = {
+    allowUnfree = true;
+  }
+
   home.packages = with pkgs; [
     ardour
     musescore
