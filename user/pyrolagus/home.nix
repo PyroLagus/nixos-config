@@ -52,6 +52,7 @@ in {
     skim
     tokei
     ripgrep-all
+    himalaya
 
     helix
 
