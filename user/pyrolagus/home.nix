@@ -20,6 +20,9 @@ in {
     allowUnfree = true;
   };
 
+  accounts.email.main.himalaya.enable = true;
+  programs.himalaya.enable = true;
+
   home.packages = with pkgs; [
     ardour
     musescore
