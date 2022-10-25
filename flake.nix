@@ -80,7 +80,7 @@
               ./user/pyrolagus/home.nix
               #./private/user/pyrolagus/ssh_hosts.nix
               private.nixosModules.user.pyrolagus.ssh
-              private.nixosModules.user.pyrolagus.email
+              #private.nixosModules.user.pyrolagus.email
             ];
           }
         ];
