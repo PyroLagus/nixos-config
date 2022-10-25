@@ -284,4 +284,8 @@ in {
       };
     };
   };
+
+  systemd.user.sessionVariables = {
+    EDITOR = "hx";
+  };
 }
