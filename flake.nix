@@ -66,7 +66,12 @@
 	        agenix.nixosModule
           {
             age.secrets.wireless.file = ./private/secrets/wireless.age;
-            age.secrets.mailbox.file = ./private/secrets/mailbox.age;
+            age.secrets.mailbox = {
+              file = ./private/secrets/mailbox.age;
+              mode = "600";
+              owner = "pyrolagus";
+              group = "pyrolagus";
+            };
           }
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
