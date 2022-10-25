@@ -66,6 +66,7 @@
 	        agenix.nixosModule
           {
             age.secrets.wireless.file = ./private/secrets/wireless.age;
+            age.secrets.mailbox.file = ./private/secrets/mailbox.age;
           }
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
@@ -74,6 +75,7 @@
               ./user/pyrolagus/home.nix
               #./private/user/pyrolagus/ssh_hosts.nix
               private.nixosModules.user.pyrolagus.ssh
+              private.nixosModules.user.pyrolagus.email
             ];
           }
         ];
