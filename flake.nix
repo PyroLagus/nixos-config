@@ -70,7 +70,7 @@
               file = ./private/secrets/mailbox.age;
               mode = "600";
               owner = "pyrolagus";
-              group = "pyrolagus";
+              group = "users";
             };
           }
           home-manager.nixosModules.home-manager {
