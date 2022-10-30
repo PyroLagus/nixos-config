@@ -126,8 +126,6 @@ in {
       cd "$NIXOS_CONFIG_PATH"
       . "$(git --exec-path)/git-sh-setup"
       require_clean_work_tree "rebuild"
-      cd ./private
-      require_clean_work_tree "rebuild"
       nixos-rebuild switch --use-remote-sudo --flake "$NIXOS_CONFIG_PATH/#"
       '')
   ];
