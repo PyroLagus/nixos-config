@@ -64,7 +64,7 @@
                 from = { id = "nixpkgs"; type = "indirect"; };
                 flake = nixpkgs;
               };
-            }
+            };
           }
 	        agenix.nixosModule
           private.nixosModules.agenixSecrets
