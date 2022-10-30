@@ -101,19 +101,6 @@
 
     # Enable CUPS to print documents.
     printing.enable = true;
-
-    # Enable sound.
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      jack.enable = true;
-
-      wireplumber = {
-        enable = true;
-      };
-    };
           
     #usbguard = {
     #  enable = true;
@@ -133,9 +120,6 @@
       ];
     };
   };
-
-  # Required for pipewire.
-  security.rtkit.enable = true;
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
