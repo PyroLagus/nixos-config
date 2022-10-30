@@ -66,7 +66,7 @@
               };
             };
           }
-	        agenix.nixosModule
+          agenix.nixosModule
           private.nixosModules.agenixSecrets
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
