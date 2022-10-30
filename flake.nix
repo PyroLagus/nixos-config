@@ -52,6 +52,7 @@
           ./system/spacecore/configuration.nix
           ./system/spacecore/networking.nix
           ./system/spacecore/gaming.nix
+          ./system/spacecore/audio.nix
           
           private.nixosModules.system.spacecore.users
           private.nixosModules.system.common.wirelessNetworks
