@@ -56,12 +56,6 @@
           
           private.nixosModules.system.spacecore.users
           private.nixosModules.system.common.wirelessNetworks
-          #./private/system/spacecore/users.nix
-          #./private/system/common/wireless_networks.nix
-          #private.nixosModules.syscfg.users
-          #{
-          #  config.syscfg.system = "spacecore";
-          #}
           {
             nix.registry.nixpkgs.flake = nixpkgs;
           }
@@ -72,7 +66,6 @@
             home-manager.useUserPackages = true;
             home-manager.users.pyrolagus.imports = [
               ./user/pyrolagus/home.nix
-              #./private/user/pyrolagus/ssh_hosts.nix
               private.nixosModules.user.pyrolagus.ssh
               #private.nixosModules.user.pyrolagus.email
             ];
