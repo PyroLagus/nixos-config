@@ -42,7 +42,7 @@
             main-overlay
             factorio-overlay
             rust-overlay.overlays.default
-            ];
+          ];
       	};
 
         modules = [
@@ -57,7 +57,14 @@
           private.nixosModules.system.spacecore.users
           private.nixosModules.system.common.wirelessNetworks
           {
-            nix.registry.nixpkgs.flake = nixpkgs;
+            nix.registry = {
+              self.flake = self;
+
+              nixpkgs = {
+                from = { id = "nixpkgs"; type = "indirect"; };
+                flake = nixpkgs;
+              };
+            }
           }
 	        agenix.nixosModule
           private.nixosModules.agenixSecrets
