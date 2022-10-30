@@ -135,7 +135,7 @@ in {
   home.sessionVariables = {
     NIXOS_CONFIG_PATH = nixos-config-path;
 
-    EDITOR = "nvim";
+    EDITOR = "hx";
     LESS = "-R --use-color";
     BROWSER = "firefox";
 
