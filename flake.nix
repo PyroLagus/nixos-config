@@ -16,6 +16,7 @@
     rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
     private.url = "/home/pyrolagus/.config/dotfiles/private.flake";
+    private.inputs.agenix.follows = "agenix";
   };
   
   outputs = inputs@{self, nixpkgs, nixpkgs-unstable, nixpkgs-main, home-manager, agenix, rust-overlay, private, ...}:
@@ -64,15 +65,7 @@
             nix.registry.nixpkgs.flake = nixpkgs;
           }
 	        agenix.nixosModule
-          {
-            age.secrets.wireless.file = ./private/secrets/wireless.age;
-            age.secrets.mailbox = {
-              file = ./private/secrets/mailbox.age;
-              mode = "600";
-              owner = "pyrolagus";
-              group = "users";
-            };
-          }
+          private.nixosModules.agenixSecrets
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
