@@ -14,7 +14,7 @@
       driSupport = true;
       driSupport32Bit = true;
 
-      extraPackages = [ rocm-opencl-icd ];
+      extraPackages = [ pkgs.rocm-opencl-icd ];
     };
   };
 
