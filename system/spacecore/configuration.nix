@@ -18,10 +18,6 @@
     };
   };
 
- hardware.opengl.extraPackages = [
-  rocm-opencl-icd
-];
-
   # disable useless backlight service
   systemd.services."systemd-backlight@backlight:acpi_video0".enable = false;
 
