@@ -34,7 +34,6 @@
     mtr.enable = true;
     udevil.enable = true;
     dconf.enable = true;
-    #ccache.enable = true;
   };
 
   services = {
