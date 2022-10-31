@@ -10,7 +10,17 @@
   hardware = {
     bluetooth.enable = true;
     nitrokey.enable = true;
+    hardware.opengl = {
+      driSupport = true;
+      driSupport32Bit = true;
+
+      extraPackages = [ rocm-opencl-icd ];
+    };
   };
+
+ hardware.opengl.extraPackages = [
+  rocm-opencl-icd
+];
 
   # disable useless backlight service
   systemd.services."systemd-backlight@backlight:acpi_video0".enable = false;
