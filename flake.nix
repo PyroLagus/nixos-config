@@ -65,6 +65,11 @@
                 from = { id = "nixpkgs"; type = "indirect"; };
                 flake = nixpkgs;
               };
+
+              rust-overlay = {
+                from = { id = "rust-overlay"; type = "indirect"; };
+                flake = rust-overlay;
+              };
             };
           }
           agenix.nixosModule
