@@ -38,10 +38,7 @@
   };
 
   services = {
-    # Enable earlyoom.
     earlyoom.enable = true;
-
-    # Enable CUPS to print documents.
     printing.enable = true;
           
     #usbguard = {
