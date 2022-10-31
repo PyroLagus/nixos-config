@@ -10,7 +10,7 @@
   hardware = {
     bluetooth.enable = true;
     nitrokey.enable = true;
-    hardware.opengl = {
+    opengl = {
       driSupport = true;
       driSupport32Bit = true;
 
