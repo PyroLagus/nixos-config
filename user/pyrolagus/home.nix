@@ -134,8 +134,6 @@ in {
 
   home.sessionVariables = {
     NIXOS_CONFIG_PATH = nixos-config-path;
-
-    EDITOR = "hx";
     LESS = "-R --use-color";
     BROWSER = "${pkgs.firefox}/bin/firefox";
 
