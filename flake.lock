@@ -73,11 +73,11 @@
     },
     "nixpkgs-main": {
       "locked": {
-        "lastModified": 1667400327,
-        "narHash": "sha256-YUxHRIQqAmkoyeAL+uCmNv3wa7N/zi/GOV4GnHSmyAQ=",
+        "lastModified": 1667406800,
+        "narHash": "sha256-NRQmUfSQjvla9iZEmzeB5Ny8SomuPG8YJwyoJ6EiqGM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "6b10854c8194f1ebaa5bce623e71c6da1c008861",
+        "rev": "27eae99b3e4c61c8b60bf598b7c2bcd071a20c86",
         "type": "github"
       },
       "original": {
@@ -108,11 +108,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1667403014,
-        "narHash": "sha256-aNfq8zBikNQcH/Gk2WWNqR8tIJxal4GTFIrFyxyXrbg=",
+        "lastModified": 1667407271,
+        "narHash": "sha256-dzKjj07TcsYsfQeh53cmOp0KX2F788p5rqG3nrEt8BU=",
         "ref": "refs/heads/main",
-        "rev": "195e6b7e3f287e05f7ce1dd96d125cc4cd2153eb",
-        "revCount": 29,
+        "rev": "396ab1e403ce6a4c825724fc080c0d985e2038fe",
+        "revCount": 30,
         "type": "git",
         "url": "file:///home/pyrolagus/.config/dotfiles/private.flake"
       },
