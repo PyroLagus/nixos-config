@@ -12,6 +12,10 @@
       z = "zoxide";
     };
 
+    envExtra = ''
+      export EDITOR=${pkgs.helix}/bin/hx
+    '';
+
     plugins = [ {
       name = "atuin";
       src = pkgs.atuin.src;
