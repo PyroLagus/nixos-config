@@ -108,11 +108,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1667398032,
-        "narHash": "sha256-wGk5WGxbeM1ieVoxJQLRLK+5AfhtYVRtgo0DbaZZHqE=",
+        "lastModified": 1667399178,
+        "narHash": "sha256-/uTJ2PTPbK2k4PramGFQyKngJjT/A46v1uO9BTDF5rc=",
         "ref": "refs/heads/main",
-        "rev": "612e6a7c1ee2240aa4ea4c418c94d1e5da06b5ba",
-        "revCount": 24,
+        "rev": "cd7ef3f97335aed129b7cd8bc5392c543d5ac427",
+        "revCount": 25,
         "type": "git",
         "url": "file:///home/pyrolagus/.config/dotfiles/private.flake"
       },
