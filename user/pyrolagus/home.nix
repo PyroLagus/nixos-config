@@ -53,6 +53,7 @@ in {
     tokei
     ripgrep-all
     himalaya
+    rnote
 
     helix
 
@@ -67,6 +68,7 @@ in {
     git-crypt
     helm
     helvum
+    hexchat
     
     imv
     inetutils
