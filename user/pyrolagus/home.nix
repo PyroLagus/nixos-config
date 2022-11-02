@@ -137,7 +137,7 @@ in {
 
     EDITOR = "hx";
     LESS = "-R --use-color";
-    BROWSER = "firefox";
+    BROWSER = "${pkgs.firefox}/bin/firefox";
 
     MOZ_ENABLE_WAYLAND = "1";
     MOZ_USE_XINPUT2 = "1";
