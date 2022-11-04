@@ -16,7 +16,6 @@ in
     wireless = {
       enable = true;
       userControlled.enable = true;
-      #environmentFile = config.age.secrets.wireless.path;
     };
 
     # Use enable DHCP explicitly for each device.

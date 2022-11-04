@@ -175,7 +175,7 @@ in {
       profile = "gpu-hq";
       ytdl-format = "bestvideo+bestaudio";
       alang = "ja, jap, eng, en, ger, de";
-      gpu-context= "wayland";
+      gpu-context = "wayland";
     };
   };
 
