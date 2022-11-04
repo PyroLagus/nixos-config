@@ -114,6 +114,7 @@ in {
     factorio
 
     (rust-bin.selectLatestNightlyWith (toolchain: toolchain.default))
+    coq
 
     (writeScriptBin "system-flake-update"
       ''
