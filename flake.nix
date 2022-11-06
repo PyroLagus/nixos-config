@@ -24,7 +24,7 @@
     system = "x86_64-linux";
     unstable-overlay = final: prev: { unstable = nixpkgs-unstable.legacyPackages."${system}"; };
     main-overlay = final: prev: { main = nixpkgs-main.legacyPackages."${system}"; };
-    factorio-overlay = final: prev: { factorio = prev.callPackage ./overlays/factorio { releaseType = "alpha"; }; };
+    #factorio-overlay = final: prev: { factorio = prev.callPackage ./overlays/factorio { releaseType = "alpha"; }; };
     #mkUser = username: {
     #  home-manager.users."${username}" = (import ./home-manager/common.nix) // (import ./home-manager/users/"${username}");
     #};
@@ -40,7 +40,6 @@
             agenix.overlay
             unstable-overlay
             main-overlay
-            factorio-overlay
             rust-overlay.overlays.default
           ];
       	};
