@@ -113,7 +113,10 @@ in {
 
     factorio
 
-    (rust-bin.selectLatestNightlyWith (toolchain: toolchain.default))
+    (rust-bin.selectLatestNightlyWith (toolchain: toolchain.default.override {
+      extensions = [ "rust-src" ];
+    }))
+    rust-analyzer
     coq
 
     (writeScriptBin "system-flake-update"
