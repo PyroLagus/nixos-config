@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ...}:
+{ config, pkgs, lib, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -16,11 +16,11 @@
       export EDITOR=${pkgs.helix}/bin/hx
     '';
 
-    plugins = [ {
+    plugins = [{
       name = "atuin";
       src = pkgs.atuin.src;
-    } ];
-    
+    }];
+
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" ];

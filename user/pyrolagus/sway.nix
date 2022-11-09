@@ -50,104 +50,106 @@
 
       modifier = "Mod4";
 
-      keybindings = let
-        cfg = config.wayland.windowManager.sway.config;
-        modifier = config.wayland.windowManager.sway.config.modifier;
-      in {
-        "${modifier}+Return" = "exec ${cfg.terminal}";
-        "${modifier}+Shift+q" = "kill";
-        "${modifier}+s" = "exec ${pkgs.wofi}/bin/wofi --show run";
-                
-        "${modifier}+${cfg.left}" = "focus left";
-        "${modifier}+${cfg.down}" = "focus down";
-        "${modifier}+${cfg.up}" = "focus up";
-        "${modifier}+${cfg.right}" = "focus right";
+      keybindings =
+        let
+          cfg = config.wayland.windowManager.sway.config;
+          modifier = config.wayland.windowManager.sway.config.modifier;
+        in
+        {
+          "${modifier}+Return" = "exec ${cfg.terminal}";
+          "${modifier}+Shift+q" = "kill";
+          "${modifier}+s" = "exec ${pkgs.wofi}/bin/wofi --show run";
 
-        "${modifier}+Left" = "focus left";
-        "${modifier}+Down" = "focus down";
-        "${modifier}+Up" = "focus up";
-        "${modifier}+Right" = "focus right";
+          "${modifier}+${cfg.left}" = "focus left";
+          "${modifier}+${cfg.down}" = "focus down";
+          "${modifier}+${cfg.up}" = "focus up";
+          "${modifier}+${cfg.right}" = "focus right";
 
-        "${modifier}+Shift+${cfg.left}" = "move left";
-        "${modifier}+Shift+${cfg.down}" = "move down";
-        "${modifier}+Shift+${cfg.up}" = "move up";
-        "${modifier}+Shift+${cfg.right}" = "move right";
+          "${modifier}+Left" = "focus left";
+          "${modifier}+Down" = "focus down";
+          "${modifier}+Up" = "focus up";
+          "${modifier}+Right" = "focus right";
 
-        "${modifier}+Shift+Left" = "move left";
-        "${modifier}+Shift+Down" = "move down";
-        "${modifier}+Shift+Up" = "move up";
-        "${modifier}+Shift+Right" = "move right";
+          "${modifier}+Shift+${cfg.left}" = "move left";
+          "${modifier}+Shift+${cfg.down}" = "move down";
+          "${modifier}+Shift+${cfg.up}" = "move up";
+          "${modifier}+Shift+${cfg.right}" = "move right";
 
-        "${modifier}+h" = "split h";
-        "${modifier}+v" = "split v";
-        "${modifier}+f" = "fullscreen toggle";
-        "${modifier}+u" = "focus parent";
+          "${modifier}+Shift+Left" = "move left";
+          "${modifier}+Shift+Down" = "move down";
+          "${modifier}+Shift+Up" = "move up";
+          "${modifier}+Shift+Right" = "move right";
 
-        "${modifier}+i" = "layout stacking";
-        "${modifier}+a" = "layout tabbed";
-        "${modifier}+e" = "layout toggle split";
+          "${modifier}+h" = "split h";
+          "${modifier}+v" = "split v";
+          "${modifier}+f" = "fullscreen toggle";
+          "${modifier}+u" = "focus parent";
 
-        "${modifier}+Shift+space" = "floating toggle";
-        "${modifier}+space" = "focus mode_toggle";
+          "${modifier}+i" = "layout stacking";
+          "${modifier}+a" = "layout tabbed";
+          "${modifier}+e" = "layout toggle split";
 
-        "${modifier}+1" = "workspace number 1";
-        "${modifier}+2" = "workspace number 2";
-        "${modifier}+3" = "workspace number 3";
-        "${modifier}+4" = "workspace number 4";
-        "${modifier}+5" = "workspace number 5";
-        "${modifier}+6" = "workspace number 6";
-        "${modifier}+7" = "workspace number 7";
-        "${modifier}+8" = "workspace number 8";
-        "${modifier}+9" = "workspace number 9";
-        "${modifier}+0" = "workspace number 10";
+          "${modifier}+Shift+space" = "floating toggle";
+          "${modifier}+space" = "focus mode_toggle";
 
-        "${modifier}+Shift+1" =
-          "move container to workspace number 1";
-        "${modifier}+Shift+2" =
-          "move container to workspace number 2";
-        "${modifier}+Shift+3" =
-          "move container to workspace number 3";
-        "${modifier}+Shift+4" =
-          "move container to workspace number 4";
-        "${modifier}+Shift+5" =
-          "move container to workspace number 5";
-        "${modifier}+Shift+6" =
-          "move container to workspace number 6";
-        "${modifier}+Shift+7" =
-          "move container to workspace number 7";
-        "${modifier}+Shift+8" =
-          "move container to workspace number 8";
-        "${modifier}+Shift+9" =
-          "move container to workspace number 9";
-        "${modifier}+Shift+0" =
-          "move container to workspace number 10";
+          "${modifier}+1" = "workspace number 1";
+          "${modifier}+2" = "workspace number 2";
+          "${modifier}+3" = "workspace number 3";
+          "${modifier}+4" = "workspace number 4";
+          "${modifier}+5" = "workspace number 5";
+          "${modifier}+6" = "workspace number 6";
+          "${modifier}+7" = "workspace number 7";
+          "${modifier}+8" = "workspace number 8";
+          "${modifier}+9" = "workspace number 9";
+          "${modifier}+0" = "workspace number 10";
 
-        "${modifier}+Shift+minus" = "move scratchpad";
-        "${modifier}+minus" = "scratchpad show";
+          "${modifier}+Shift+1" =
+            "move container to workspace number 1";
+          "${modifier}+Shift+2" =
+            "move container to workspace number 2";
+          "${modifier}+Shift+3" =
+            "move container to workspace number 3";
+          "${modifier}+Shift+4" =
+            "move container to workspace number 4";
+          "${modifier}+Shift+5" =
+            "move container to workspace number 5";
+          "${modifier}+Shift+6" =
+            "move container to workspace number 6";
+          "${modifier}+Shift+7" =
+            "move container to workspace number 7";
+          "${modifier}+Shift+8" =
+            "move container to workspace number 8";
+          "${modifier}+Shift+9" =
+            "move container to workspace number 9";
+          "${modifier}+Shift+0" =
+            "move container to workspace number 10";
 
-        "${modifier}+Shift+c" = "reload";
-        "${modifier}+Shift+e" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
+          "${modifier}+Shift+minus" = "move scratchpad";
+          "${modifier}+minus" = "scratchpad show";
 
-        #"${modifier}+r" = "mode resize";
+          "${modifier}+Shift+c" = "reload";
+          "${modifier}+Shift+e" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'";
 
-        "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +10%";
-        "XF86AudioLowerVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -10%";
+          #"${modifier}+r" = "mode resize";
 
-        "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl -d amdgpu_bl0 s 10%-";
-        "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl -d amdgpu_bl0 s +10%";
+          "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +10%";
+          "XF86AudioLowerVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -10%";
 
-        "${modifier}+p" = "exec ${pkgs.rofi-pass}/bin/rofi-pass";
-        "${modifier}+m" = "exec ${pkgs.wofi-emoji}/bin/wofi-emoji";
-        "${modifier}+b" = "exec ${pkgs.wl-clipboard}/bin/wl-paste";
+          "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl -d amdgpu_bl0 s 10%-";
+          "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl -d amdgpu_bl0 s +10%";
 
-        "${modifier}+Shift+l" = "exec ${pkgs.procps}/bin/pkill -USR1 swayidle";
-      };
+          "${modifier}+p" = "exec ${pkgs.rofi-pass}/bin/rofi-pass";
+          "${modifier}+m" = "exec ${pkgs.wofi-emoji}/bin/wofi-emoji";
+          "${modifier}+b" = "exec ${pkgs.wl-clipboard}/bin/wl-paste";
+
+          "${modifier}+Shift+l" = "exec ${pkgs.procps}/bin/pkill -USR1 swayidle";
+        };
 
       window = {
         hideEdgeBorders = "smart";
       };
 
-      bars = [];
+      bars = [ ];
     };
 
     extraSessionCommands = ''
@@ -162,19 +164,19 @@
   };
 
   services.swayidle =
-  let
-    lockCommand = "${pkgs.swaylock}/bin/swaylock -fF --image ${./wallpaper.jpg}";
-  in
-  {
-    enable = true;
-    events = [
-      { event = "before-sleep"; command = lockCommand; }
-      { event = "lock"; command = "lock"; }
-    ];
-    timeouts = [
-      { timeout = 300; command = lockCommand; }
-    ];
-  };
+    let
+      lockCommand = "${pkgs.swaylock}/bin/swaylock -fF --image ${./wallpaper.jpg}";
+    in
+    {
+      enable = true;
+      events = [
+        { event = "before-sleep"; command = lockCommand; }
+        { event = "lock"; command = "lock"; }
+      ];
+      timeouts = [
+        { timeout = 300; command = lockCommand; }
+      ];
+    };
 
   programs.waybar = {
     enable = true;
