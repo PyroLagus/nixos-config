@@ -43,12 +43,9 @@ in
   };
 
   services = {
-    unbound = {
+    resolved = {
       enable = true;
-      package = pkgs.unbound-with-systemd;
-      settings = {
-        remote-control.control-enable = true;
-      };
+      dnssec = "true";
     };
 
     avahi = {
