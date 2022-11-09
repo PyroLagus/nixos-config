@@ -28,8 +28,8 @@ in
 
   systemd.services = {
     # don't require ethernet to be connected when booting
-    "network-link-${lanDevice.name}".wantedBy = lib.mkForce [];
-    "network-addresses-${lanDevice.name}".wantedBy = lib.mkForce [];
+    "network-link-${lanDevice.name}".wantedBy = lib.mkForce [ ];
+    "network-addresses-${lanDevice.name}".wantedBy = lib.mkForce [ ];
   };
 
   systemd.network.links."10-lan" = {

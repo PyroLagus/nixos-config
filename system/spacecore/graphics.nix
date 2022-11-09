@@ -5,35 +5,35 @@
       enable = true;
       wrapperFeatures.gtk = true;
       extraPackages =
-      with pkgs; [
-        alacritty
-        brightnessctl
-        font-awesome
-	      gnome.adwaita-icon-theme
-      	grim
-        mako
-      	pinentry-gnome
-      	playerctl
-        sarasa-gothic
-      	slurp
-      	sway-contrib.grimshot
-        swayidle
-        swaylock
-        waybar
-        wl-clipboard
-        wofi
-        xdg-desktop-portal-wlr
+        with pkgs; [
+          alacritty
+          brightnessctl
+          font-awesome
+          gnome.adwaita-icon-theme
+          grim
+          mako
+          pinentry-gnome
+          playerctl
+          sarasa-gothic
+          slurp
+          sway-contrib.grimshot
+          swayidle
+          swaylock
+          waybar
+          wl-clipboard
+          wofi
+          xdg-desktop-portal-wlr
 
-        (writeScriptBin "set-clamshell"
-          ''
-            #!/usr/bin/env bash
-            if grep -q open /proc/acpi/button/lid/LID/state; then
-              swaymsg output "$1" enable
-            else
-              swaymsg output "$1" disable
-            fi
-          '')
-      ];
+          (writeScriptBin "set-clamshell"
+            ''
+              #!/usr/bin/env bash
+              if grep -q open /proc/acpi/button/lid/LID/state; then
+                swaymsg output "$1" enable
+              else
+                swaymsg output "$1" disable
+              fi
+            '')
+        ];
     };
   };
 
@@ -78,7 +78,7 @@
       extraPackages = with pkgs; [
         rocm-opencl-icd
         intel-media-driver # LIBVA_DRIVER_NAME=iHD
-        vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+        vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
         vaapiVdpau
         libvdpau-va-gl
       ];

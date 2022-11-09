@@ -4,10 +4,11 @@ let
   username = "pyrolagus";
   nixos-config-path = "/home/${username}/.config/dotfiles/nixos-config";
 
-in {
+in
+{
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
-  
+
   home.stateVersion = "22.05";
   programs.home-manager.enable = true;
 
@@ -23,14 +24,14 @@ in {
     musescore
     rosegarden
     spotify
-    
+
     atool
     atuin
     blender
     bluez-tools
     cadence
     carla
-    (discord.override {nss = nss_latest;})
+    (discord.override { nss = nss_latest; })
 
     comma
     niv
@@ -58,17 +59,17 @@ in {
     unzip
 
     eiskaltdcpp
-    
+
     ghidra-bin
     git-crypt
     helm
     helvum
     hexchat
-    
+
     imv
     inetutils
     inkscape
-    
+
     libnotify
     lldb
     lmms
@@ -76,7 +77,7 @@ in {
     minecraft
     mitmproxy
     mosh
-    
+
     neofetch
 
     obsidian
@@ -85,12 +86,12 @@ in {
     pferd
     qjackctl
     qsynth
-    
+
     rr
     tdesktop
     termdown
     thunderbird
-    
+
     weechat
     wofi
     wofi-emoji
@@ -100,7 +101,7 @@ in {
     yoshimi
     youtube-dl
     yt-dlp
-    
+
     zam-plugins
 
     alacritty
@@ -117,18 +118,18 @@ in {
 
     (writeScriptBin "system-flake-update"
       ''
-      #!/bin/sh
-      cd "$NIXOS_CONFIG_PATH"
-      nix flake update --commit-lock-file
+        #!/bin/sh
+        cd "$NIXOS_CONFIG_PATH"
+        nix flake update --commit-lock-file
       '')
 
     (writeScriptBin "system-flake-rebuild"
       ''
-      #!/bin/sh
-      cd "$NIXOS_CONFIG_PATH"
-      . "$(git --exec-path)/git-sh-setup"
-      require_clean_work_tree "rebuild"
-      nixos-rebuild switch --use-remote-sudo --flake "$NIXOS_CONFIG_PATH/#"
+        #!/bin/sh
+        cd "$NIXOS_CONFIG_PATH"
+        . "$(git --exec-path)/git-sh-setup"
+        require_clean_work_tree "rebuild"
+        nixos-rebuild switch --use-remote-sudo --flake "$NIXOS_CONFIG_PATH/#"
       '')
   ];
 
@@ -163,12 +164,12 @@ in {
   };
 
   /*
-  programs.vscode = {
+    programs.vscode = {
     enable = true;
     userSettings = {
       "[nix]"."editor.tabSize" = 2;
     };
-  };
+    };
   */
 
   programs.mpv = {
@@ -240,7 +241,7 @@ in {
       #
       set adjust-open width
       set recolor true
-      '';
+    '';
   };
 
   programs.firefox.enable = true;

@@ -1,6 +1,6 @@
 { config, pkgs, lib, nixpkgs, ... }:
 
- {
+{
   users.mutableUsers = false;
 
   hardware = {
@@ -39,7 +39,7 @@
   services = {
     earlyoom.enable = true;
     printing.enable = true;
-          
+
     #usbguard = {
     #  enable = true;
     #  rules = builtins.readFile ./secrets/system/usbguard_rules.conf;
