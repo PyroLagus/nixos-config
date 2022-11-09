@@ -11,6 +11,7 @@ let
   };
 in
 {
+  hardware.bluetooth.enable = true;
   networking = {
     hostName = "spacecore";
     wireless = {

@@ -3,14 +3,7 @@
 {
   users.mutableUsers = false;
 
-  hardware = {
-    bluetooth.enable = true;
-    nitrokey.enable = true;
-    opentabletdriver = {
-      enable = true;
-      daemon.enable = true;
-    };
-  };
+  hardware.nitrokey.enable = true;
 
   # Disable useless backlight service
   systemd.services."systemd-backlight@backlight:acpi_video0".enable = false;
@@ -39,14 +32,13 @@
   services = {
     earlyoom.enable = true;
     printing.enable = true;
+    tlp.enable = true;
+    upower.enable = true;
 
     #usbguard = {
     #  enable = true;
     #  rules = builtins.readFile ./secrets/system/usbguard_rules.conf;
     #};
-
-    tlp.enable = true;
-    upower.enable = true;
   };
 
   # List packages installed in system profile.
