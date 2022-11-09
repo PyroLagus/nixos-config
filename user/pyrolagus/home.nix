@@ -113,9 +113,9 @@ in {
 
     factorio
 
-    (rust-bin.selectLatestNightlyWith (toolchain: toolchain.default.override {
+    (rust-bin.stable.latest.default.override {
       extensions = [ "rust-src" ];
-    }))
+    })
     rust-analyzer
     coq
 
