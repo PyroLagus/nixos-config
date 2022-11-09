@@ -107,6 +107,7 @@ in {
     wezterm
 
     factorio
+    nixpkgs-fmt
 
     (rust-bin.stable.latest.default.override {
       extensions = [ "rust-src" ];
