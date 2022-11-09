@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, lib, nixpkgs, ... }:
 
  {
@@ -16,7 +12,7 @@
     };
   };
 
-  # disable useless backlight service
+  # Disable useless backlight service
   systemd.services."systemd-backlight@backlight:acpi_video0".enable = false;
 
   # Set your time zone.
@@ -76,12 +72,6 @@
 
   # Necessary for ZSH completion.
   environment.pathsToLink = [ "/share/zsh" ];
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
