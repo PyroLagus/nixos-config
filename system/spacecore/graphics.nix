@@ -83,5 +83,9 @@
         libvdpau-va-gl
       ];
     };
+    opentabletdriver = {
+      enable = true;
+      daemon.enable = true;
+    };
   };
 }
