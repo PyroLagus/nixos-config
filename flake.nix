@@ -45,14 +45,8 @@
       	};
 
         modules = [
-          ./system/common/nix.nix
-          ./system/spacecore/boot.nix
-          ./system/spacecore/hardware-configuration.nix
-          ./system/spacecore/configuration.nix
-          ./system/spacecore/networking.nix
-          ./system/spacecore/gaming.nix
-          ./system/spacecore/audio.nix
-          ./system/spacecore/graphics.nix
+          ./system/common
+          ./system/spacecore
           
           private.nixosModules.system.spacecore.users
           private.nixosModules.system.common.wirelessNetworks
@@ -77,7 +71,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.pyrolagus.imports = [
-              ./user/pyrolagus/home.nix
+              ./user/pyrolagus
               private.nixosModules.user.pyrolagus.ssh
               #private.nixosModules.user.pyrolagus.email
             ];
