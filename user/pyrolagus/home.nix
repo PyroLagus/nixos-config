@@ -5,11 +5,6 @@ let
   nixos-config-path = "/home/${username}/.config/dotfiles/nixos-config";
 
 in {
-  imports = [
-    ./sway.nix
-    ./terminal.nix
-  ];
-
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
   

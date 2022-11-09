@@ -59,4 +59,29 @@
       };
     };
   };
+
+  xdg = {
+    portal = {
+      enable = true;
+      wlr.enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+      ];
+    };
+  };
+
+  hardware = {
+    opengl = {
+      driSupport = true;
+      driSupport32Bit = true;
+
+      extraPackages = with pkgs; [
+        rocm-opencl-icd
+        intel-media-driver # LIBVA_DRIVER_NAME=iHD
+        vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+        vaapiVdpau
+        libvdpau-va-gl
+      ];
+    };
+  };
 }
