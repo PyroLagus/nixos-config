@@ -166,12 +166,14 @@ in {
     enable = true;
   };
 
+  /*
   programs.vscode = {
     enable = true;
     userSettings = {
       "[nix]"."editor.tabSize" = 2;
     };
   };
+  */
 
   programs.mpv = {
     enable = true;
