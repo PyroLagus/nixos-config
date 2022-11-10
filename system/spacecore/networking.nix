@@ -34,12 +34,14 @@ in
       userControlled.enable = true;
     };
 
+    /*
     # Use enable DHCP explicitly for each device.
     useDHCP = false;
     interfaces = {
       "${lanDevice.name}".useDHCP = true;
       "${wlanDevice.name}".useDHCP = true;
     };
+    */
   };
 
   systemd.services = {
