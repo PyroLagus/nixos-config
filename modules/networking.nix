@@ -48,9 +48,16 @@ in
       interfaces = (mapAttrs (name: a: { useDHCP = true; }) enabledInterfaces);
     };
 
-    systemd.services = (genAttrs (trace (attrNames enabledInterfaces) (attrNames enabledInterfaces)) (name: {
+    systemd.services =
+    (mapAttrs'
+      (name: a: nameValuePair "network-link-${name}" { wantedBy = lib.mkForce [ ]; }) optionalInterfaces) //
+    (mapAttrs'
+      (name: a: nameValuePair "network-address-${name}" { wantedBy = lib.mkForce [ ];}) optionalInterfaces);
+    /*
+    systemd.services = map (name: {
       "network-link-${name}".wantedBy = lib.mkForce [ ];
       "network-address-${name}".wantedBy = lib.mkForce [ ];
-    }));
+    }) (attrNames optionalInterfaces);
   };
+  */
 }
