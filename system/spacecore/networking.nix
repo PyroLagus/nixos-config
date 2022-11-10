@@ -11,6 +11,21 @@ let
   };
 in
 {
+  pcfg.networking = {
+    enable = true;
+    interfaces = {
+      "wlan0" = {
+        enable = true;
+        hwAddress = "e4:aa:ea:f8:57:5f";
+      };
+
+      "lan0" = {
+        enable = true;
+        hwAddress = "a0:ce:c8:c9:54:03";
+      };
+    };
+  };
+
   hardware.bluetooth.enable = true;
   networking = {
     hostName = "spacecore";
@@ -33,6 +48,7 @@ in
     "network-addresses-${lanDevice.name}".wantedBy = lib.mkForce [ ];
   };
 
+/*
   systemd.network.links."10-lan" = {
     matchConfig.PermanentMACAddress = "${lanDevice.address}";
     linkConfig.Name = "${lanDevice.name}";
@@ -42,6 +58,7 @@ in
     matchConfig.PermanentMACAddress = "${wlanDevice.address}";
     linkConfig.Name = "${wlanDevice.name}";
   };
+*/
 
   services = {
     resolved = {

@@ -47,6 +47,7 @@
 
           modules = [
             ./modules/audio.nix
+            ./modules/networking.nix
 
             ./system/common
             ./system/spacecore
