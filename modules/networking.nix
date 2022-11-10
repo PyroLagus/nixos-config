@@ -5,7 +5,6 @@ with lib;
 let
   cfg = config.pcfg.networking;
   opt = options.pcfg.networking;
-  interfaceList = mapAttrsToList (name: opts: opts // { inherit name; }) cfg.interfaces;
 in
 {
   options.pcfg.networking.enable = mkOption {
@@ -33,7 +32,7 @@ in
       (name: a: nameValuePair "10-${name}"
         {
           matchConfig.PermanentMACAddress = a.hwAddress;
-          linkConfig.name = name;
+          linkConfig.Name = name;
         }
       )
       (filterAttrs (n: v: v.enable && (v.hwAddress != null)) cfg.interfaces));
