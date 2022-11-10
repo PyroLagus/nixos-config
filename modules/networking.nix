@@ -48,7 +48,11 @@ in
       interfaces = (mapAttrs (name: a: { useDHCP = true; }) enabledInterfaces);
     };
 
-    systemd.services =
+    systemd.services = genAttrs
+      (concatMap (name: ["network-link-${name}" "network-address-${name}"]) (attrNames optionalInterfaces))
+      (name: { wantedBy = lib.mkForce [ ]; });
+
+    /*
     (mapAttrs'
       (name: a: nameValuePair "network-link-${name}" { wantedBy = lib.mkForce [ ]; }) optionalInterfaces) //
     (mapAttrs'
