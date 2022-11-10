@@ -6,7 +6,7 @@ let
   cfg = config.pcfg.networking;
   opt = options.pcfg.networking;
   enabledInterfaces = filterAttrs (n: v: v.enable) cfg.interfaces;
-  requiredInterfaces = filterAttrs (n: v: !v.required) enabledInterfaces;
+  optionalInterfaces = filterAttrs (n: v: !v.required) enabledInterfaces;
 in
 {
   options.pcfg.networking.enable = mkOption {
@@ -48,7 +48,7 @@ in
       interfaces = (mapAttrs (name: a: { useDHCP = true; }) enabledInterfaces);
     };
 
-    systemd.services = (genAttrs (mapAttrsToList (name: a: name) enabledInterfaces) (name: {
+    systemd.services = (genAttrs (attrNames enabledInterfaces) (name: {
       "network-link-${name}".wantedBy = lib.mkForce [ ];
       "network-address-${name}".wantedBy = lib.mkForce [ ];
     }));
