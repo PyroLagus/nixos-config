@@ -51,17 +51,5 @@ in
     systemd.services = genAttrs
       (concatMap (name: ["network-link-${name}" "network-address-${name}"]) (attrNames optionalInterfaces))
       (name: { wantedBy = lib.mkForce [ ]; });
-
-    /*
-    (mapAttrs'
-      (name: a: nameValuePair "network-link-${name}" { wantedBy = lib.mkForce [ ]; }) optionalInterfaces) //
-    (mapAttrs'
-      (name: a: nameValuePair "network-address-${name}" { wantedBy = lib.mkForce [ ];}) optionalInterfaces);
-    /*
-    systemd.services = map (name: {
-      "network-link-${name}".wantedBy = lib.mkForce [ ];
-      "network-address-${name}".wantedBy = lib.mkForce [ ];
-    }) (attrNames optionalInterfaces);
-    */
   };
 }
