@@ -51,8 +51,8 @@
             ./system/common
             ./system/spacecore
 
-            private.nixosModules.system.spacecore
             private.nixosModules.system.common
+            private.nixosModules.system.spacecore
             {
               nix.registry = {
                 self.flake = self;
