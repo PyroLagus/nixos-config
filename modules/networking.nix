@@ -30,7 +30,7 @@ in
 
   config = {
     systemd.network.links = (mapAttrs (name: a: {
-      "10-${name}" = mkIf (a.enable && (a.hwAddress != null)) {
+      mkIf (a.enable && (a.hwAddress != null)) {
         matchConfig.PermanentMACAddress = a.hwAddress;
         linkConfig.name = name;
       };
