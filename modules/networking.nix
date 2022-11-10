@@ -34,6 +34,6 @@ in
         matchConfig.PermanentMACAddress = a.hwAddress;
         linkConfig.name = name;
       };
-    }) interfaceList);
+    }) cfg.interfaces);
   };
 }
