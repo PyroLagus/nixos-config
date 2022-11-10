@@ -20,9 +20,9 @@ in
           default = false;
           example = true;
         };
-        hwAddress = {
-          type = types.str;
-          default = "";
+        hwAddress = mkOption {
+          type = types.nullOr types.str;
+          default = null;
         };
       };
     });
