@@ -6,6 +6,7 @@ let
   cfg = config.pcfg.networking;
   opt = options.pcfg.networking;
   enabledInterfaces = filterAttrs (n: v: v.enable) cfg.interfaces;
+  requiredInterfaces = filterAttrs (n: v: !v.required) enabledInterfaces;
 in
 {
   options.pcfg.networking.enable = mkOption {
@@ -23,6 +24,10 @@ in
         hwAddress = mkOption {
           type = types.nullOr types.str;
           default = null;
+        };
+        required = mkOption {
+          default = false;
+          example = true;
         };
       };
     });
@@ -42,5 +47,10 @@ in
       useDHCP = false;
       interfaces = (mapAttrs (name: a: { useDHCP = true; }) enabledInterfaces);
     };
+
+    systemd.services = (mapAttrs (name: a: {
+      "network-link-${name}".wantedBy = lib.mkForce [ ];
+      "network-address-${name}".wantedBy = lib.mkForce [ ];
+    }));
   };
 }

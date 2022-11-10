@@ -17,6 +17,7 @@ in
       "wlan0" = {
         enable = true;
         hwAddress = "e4:aa:ea:f8:57:5f";
+        required = true;
       };
 
       "lan0" = {
@@ -44,11 +45,14 @@ in
     */
   };
 
+  /*
+
   systemd.services = {
     # don't require ethernet to be connected when booting
     "network-link-${lanDevice.name}".wantedBy = lib.mkForce [ ];
     "network-addresses-${lanDevice.name}".wantedBy = lib.mkForce [ ];
   };
+  */
 
 /*
   systemd.network.links."10-lan" = {
