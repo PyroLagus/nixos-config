@@ -21,8 +21,8 @@ in
           example = true;
         };
         hwAddress = {
-          type = types.nullOr types.str;
-          default = null;
+          type = types.str;
+          default = "";
         };
       };
     });
