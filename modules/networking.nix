@@ -18,8 +18,8 @@ in
     type = types.attrsOf (types.submodule {
       options = {
         enable = mkOption {
-          default = false;
-          example = true;
+          default = true;
+          example = false;
         };
         hwAddress = mkOption {
           type = types.nullOr types.str;

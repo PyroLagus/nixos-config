@@ -3,7 +3,6 @@
 let
   username = "pyrolagus";
   nixos-config-path = "/home/${username}/.config/dotfiles/nixos-config";
-
 in
 {
   home.username = "${username}";
@@ -109,7 +108,7 @@ in
 
     factorio
     nixpkgs-fmt
-    
+
     vscode
 
     (rust-bin.stable.latest.default.override {
