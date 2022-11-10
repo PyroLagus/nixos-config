@@ -51,8 +51,8 @@
             ./system/common
             ./system/spacecore
 
-            private.nixosModules.system.spacecore.users
-            private.nixosModules.system.common.wirelessNetworks
+            private.nixosModules.system.spacecore
+            private.nixosModules.system.common
             {
               nix.registry = {
                 self.flake = self;
