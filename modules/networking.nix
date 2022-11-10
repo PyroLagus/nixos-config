@@ -29,7 +29,7 @@ in
   };
 
   config = {
-    systemd.network.links = (mapAttrs' (name: a: {
+    systemd.network.links = systemd.network.links // (mapAttrs' (name: a: {
       name = "10-${name}";
       value = {
         matchConfig.PermanentMACAddress = a.hwAddress;
