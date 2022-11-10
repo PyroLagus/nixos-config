@@ -13,6 +13,7 @@
       "lan0" = {
         enable = true;
         hwAddress = "a0:ce:c8:c9:54:03";
+        required = false;
       };
     };
   };
