@@ -51,6 +51,6 @@ in
     systemd.services = (mapAttrs (name: a: {
       "network-link-${name}".wantedBy = lib.mkForce [ ];
       "network-address-${name}".wantedBy = lib.mkForce [ ];
-    }));
+    }) enabledInterfaces);
   };
 }
