@@ -46,6 +46,8 @@
           };
 
           modules = [
+            ./modules/audio.nix
+
             ./system/common
             ./system/spacecore
 
