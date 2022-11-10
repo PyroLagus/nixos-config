@@ -58,6 +58,6 @@ in
       "network-link-${name}".wantedBy = lib.mkForce [ ];
       "network-address-${name}".wantedBy = lib.mkForce [ ];
     }) (attrNames optionalInterfaces);
+    */
   };
-  */
 }
