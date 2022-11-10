@@ -29,11 +29,12 @@ in
   };
 
   config = {
-    systemd.network.links = (mapAttrs (name: a: {
-      mkIf (a.enable && (a.hwAddress != null)) {
+    systemd.network.links = (mapAttrs' (name: a: {
+      name = "10-${name}";
+      value = {
         matchConfig.PermanentMACAddress = a.hwAddress;
         linkConfig.name = name;
       };
-    }) cfg.interfaces);
+    }) (collect (a: a.enable) cfg.interfaces));
   };
 }
