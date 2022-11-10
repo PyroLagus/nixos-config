@@ -1,6 +1,5 @@
 { config, pkgs, lib, ... }:
 {
-  pcfg.audio.enable = true;
   services.fluidsynth = {
     enable = true;
     soundService = "pipewire-pulse";
