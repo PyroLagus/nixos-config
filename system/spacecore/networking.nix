@@ -7,6 +7,7 @@
       "wlan0" = {
         hwAddress = "e4:aa:ea:f8:57:5f";
         required = true;
+        isWireless = true;
       };
 
       "lan0" = {
@@ -19,10 +20,12 @@
   hardware.bluetooth.enable = true;
   networking = {
     hostName = "spacecore";
+    /*
     wireless = {
       enable = true;
       userControlled.enable = true;
     };
+    */
   };
 
   services = {
