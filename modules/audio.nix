@@ -1,11 +1,11 @@
 { config, pkgs, lib, nixpkgs, ... }:
 {
-  options.pcfg.audio.enable = lib.mkOption {
+  options.scfg.audio.enable = lib.mkOption {
     default = false;
     example = true;
   };
 
-  config = lib.mkIf config.pcfg.audio.enable {
+  config = lib.mkIf config.scfg.audio.enable {
     services.pipewire = {
       enable = true;
       alsa.enable = true;
