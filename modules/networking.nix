@@ -52,7 +52,7 @@ in
     networking = {
       useDHCP = false;
       interfaces = (mapAttrs (name: a: { useDHCP = true; }) enabledInterfaces);
-      wireless = let e = any (a: a.isWireless) enabledInterfaces; in {
+      wireless = let e = any (a: a.isWireless) (attrValues enabledInterfaces); in {
         enable = e;
         userControlled.enable = e;
       };
