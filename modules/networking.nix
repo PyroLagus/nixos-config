@@ -30,6 +30,10 @@ in
           default = false;
           example = true;
         };
+        isWireless = mkOption {
+          default = false;
+          example = true;
+        };
       };
     });
   };
@@ -48,6 +52,10 @@ in
     networking = {
       useDHCP = false;
       interfaces = (mapAttrs (name: a: { useDHCP = true; }) enabledInterfaces);
+      wireless = let e = any (a: a.isWireless) enabledInterfaces; in {
+        enable = e;
+        userControlled.enable = e;
+      };
     };
 
     systemd.services = genAttrs
