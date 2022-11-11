@@ -18,29 +18,8 @@
   };
 
   hardware.bluetooth.enable = true;
-  networking = {
-    hostName = "spacecore";
-    /*
-    wireless = {
-      enable = true;
-      userControlled.enable = true;
-    };
-    */
-  };
 
   services = {
-    resolved = {
-      enable = true;
-      dnssec = "true";
-    };
-
-    avahi = {
-      enable = true;
-      nssmdns = true;
-    };
-
     openssh.enable = true;
-
-    #dhcpd4.enable = true;
   };
 }

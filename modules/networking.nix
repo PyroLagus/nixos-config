@@ -38,6 +38,11 @@ in
     });
   };
 
+  options.pcfg.networking.zeroconf.enable = mkOption {
+    default = false;
+    example = true;
+  };
+
   config = mkIf cfg.enable {
     systemd.network.wait-online.anyInterface = true;
     systemd.network.links = (mapAttrs'
@@ -61,5 +66,17 @@ in
     systemd.services = genAttrs
       (concatMap (name: ["network-link-${name}" "network-addresses-${name}"]) (attrNames optionalInterfaces))
       (name: { wantedBy = lib.mkForce []; });
+
+    services = {
+      resolved = {
+        enable = true;
+        dnssec = "true";
+      };
+
+      avahi = {
+        enable = cfg.zeroconf.enable;
+        nssmdns = cfg.zeroconf.enable;
+      };
+    };
   };
 }

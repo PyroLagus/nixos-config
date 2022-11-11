@@ -2,6 +2,7 @@
 
 {
   users.mutableUsers = false;
+  networking.hostName = "spacecore";
 
   hardware.nitrokey.enable = true;
 
