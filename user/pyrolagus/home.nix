@@ -32,31 +32,6 @@ in
     carla
     (discord.override { nss = nss_latest; })
 
-    comma
-    niv
-    nix-index
-
-    bat
-    bottom
-    du-dust
-    dutree
-    fd
-    hyperfine
-    kalker
-    sd
-    skim
-    tokei
-    ripgrep-all
-    himalaya
-    rnote
-
-    helix
-
-    mc
-    httpie
-    khal
-    unzip
-
     eiskaltdcpp
 
     ghidra-bin
