@@ -34,6 +34,7 @@ in
   };
 
   config = mkIf cfg.enable {
+    systemd.network.wait-online.anyInterface = true;
     systemd.network.links = (mapAttrs'
       (name: a: nameValuePair "10-${name}"
         {
