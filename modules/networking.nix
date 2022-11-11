@@ -7,6 +7,7 @@ let
   opt = options.pcfg.networking;
   enabledInterfaces = filterAttrs (n: v: v.enable) cfg.interfaces;
   optionalInterfaces = filterAttrs (n: v: !v.required) enabledInterfaces;
+  dbg = (exp: trace exp exp);
 in
 {
   options.pcfg.networking.enable = mkOption {
@@ -50,7 +51,7 @@ in
     };
 
     systemd.services = genAttrs
-      (concatMap (name: ["network-link-${name}" "network-address-${name}"]) (attrNames optionalInterfaces))
-      (name: { wantedBy = lib.mkForce [ ]; });
+      (concatMap (name: ["network-link-${name}" "network-addresses-${name}"]) (attrNames (dbg optionalInterfaces)))
+      (name: { wantedBy = lib.mkForce []; });
   };
 }
