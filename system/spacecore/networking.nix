@@ -15,6 +15,7 @@
         required = false;
       };
     };
+    zeroconf.enable = true;
   };
 
   hardware.bluetooth.enable = true;
