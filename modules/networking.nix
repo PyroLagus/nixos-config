@@ -3,19 +3,19 @@
 with lib;
 
 let
-  cfg = config.pcfg.networking;
-  opt = options.pcfg.networking;
+  cfg = config.scfg.networking;
+  opt = options.scfg.networking;
   enabledInterfaces = filterAttrs (n: v: v.enable) cfg.interfaces;
   optionalInterfaces = filterAttrs (n: v: !v.required) enabledInterfaces;
   dbg = (exp: trace exp exp);
 in
 {
-  options.pcfg.networking.enable = mkOption {
+  options.scfg.networking.enable = mkOption {
     default = true;
     example = false;
   };
 
-  options.pcfg.networking.interfaces = mkOption {
+  options.scfg.networking.interfaces = mkOption {
     type = types.attrsOf (types.submodule {
       options = {
         enable = mkOption {
@@ -38,7 +38,7 @@ in
     });
   };
 
-  options.pcfg.networking.zeroconf.enable = mkOption {
+  options.scfg.networking.zeroconf.enable = mkOption {
     default = false;
     example = true;
   };

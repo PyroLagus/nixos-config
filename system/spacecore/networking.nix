@@ -1,7 +1,7 @@
 { config, pkgs, lib, nixpkgs, ... }:
 
 {
-  pcfg.networking = {
+  scfg.networking = {
     enable = true;
     interfaces = {
       "wlan0" = {
