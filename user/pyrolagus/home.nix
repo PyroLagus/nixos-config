@@ -132,6 +132,16 @@ in
         require_clean_work_tree "rebuild"
         nixos-rebuild switch --use-remote-sudo --flake "$NIXOS_CONFIG_PATH/#"
       '')
+    (writeScriptBin "system-flake-test"
+      ''
+        #!/bin/sh
+        nixos-rebuild test --use-remote-sudo --flake "$NIXOS_CONFIG_PATH/#"
+      '')
+    (writeScriptBin "system-flake-dry-activate"
+      ''
+        #!/bin/sh
+        nixos-rebuild dry-activate --use-remote-sudo --flake "$NIXOS_CONFIG_PATH/#"
+      '')
   ];
 
   home.sessionVariables = {
