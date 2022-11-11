@@ -51,7 +51,7 @@ in
     };
 
     systemd.services = genAttrs
-      (concatMap (name: ["network-link-${name}" "network-addresses-${name}"]) (attrNames (dbg optionalInterfaces)))
+      (concatMap (name: ["network-link-${name}" "network-addresses-${name}"]) (attrNames optionalInterfaces))
       (name: { wantedBy = lib.mkForce []; });
   };
 }
