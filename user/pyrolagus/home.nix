@@ -15,6 +15,8 @@ in
     allowUnfree = true;
   };
 
+  ucfg.graphical.sway.enable = true;
+
   #accounts.email.accounts.main.himalaya.enable = true;
   #programs.himalaya.enable = true;
 
