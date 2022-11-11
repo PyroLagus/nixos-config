@@ -143,26 +143,7 @@ in
     MOZ_USE_XINPUT2 = "1";
   };
 
-  programs.exa = {
-    enable = true;
-  };
-
-  programs.direnv.enable = true;
   programs.emacs.enable = true;
-
-  programs.git = {
-    enable = true;
-    userName = "Danny Bautista Sanchez";
-    userEmail = "mail@pyrolagus.de";
-    extraConfig = {
-      init.defaultBranch = "main";
-      submodule.recurse = true;
-    };
-  };
-
-  programs.ssh = {
-    enable = true;
-  };
 
   /*
     programs.vscode = {
