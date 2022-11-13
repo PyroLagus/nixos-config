@@ -1,29 +1,26 @@
 { config, pkgs, lib, ... }:
 {
   home.packages = with pkgs; [
-    comma
-    niv
-    nix-index
-
     bat
     bottom
+    comma
     du-dust
     dutree
     fd
+    helix
+    himalaya
+    httpie
     hyperfine
     kalker
+    khal
+    mc
+    niv
+    nix-index
+    ripgrep-all
+    rnote
     sd
     skim
     tokei
-    ripgrep-all
-    himalaya
-    rnote
-
-    helix
-
-    mc
-    httpie
-    khal
     unzip
   ];
 
@@ -92,5 +89,4 @@
     enable = true;
   };
   programs.direnv.enable = true;
-
 }

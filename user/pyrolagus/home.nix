@@ -21,54 +21,39 @@ in
   #programs.himalaya.enable = true;
 
   home.packages = with pkgs; [
-    ardour
-    musescore
-    rosegarden
-    spotify
-
+    (discord.override { nss = nss_latest; })
+    alacritty
     atool
     atuin
     blender
     bluez-tools
-    cadence
-    carla
-    (discord.override { nss = nss_latest; })
-
     eiskaltdcpp
-
+    factorio
     ghidra-bin
     git-crypt
     helm
     helvum
     hexchat
-
     imv
     inetutils
     inkscape
-
     libnotify
     lldb
-    lmms
-    milkytracker
     minecraft
     mitmproxy
     mosh
-
     neofetch
-
+    nixpkgs-fmt
     obsidian
     passff-host
-    pavucontrol
     pferd
-    qjackctl
-    qsynth
-
     rr
     tdesktop
     termdown
     thunderbird
-
+    vscode
     weechat
+    wezterm
     wofi
     wofi-emoji
     xdg-utils
@@ -77,16 +62,7 @@ in
     yoshimi
     youtube-dl
     yt-dlp
-
     zam-plugins
-
-    alacritty
-    wezterm
-
-    factorio
-    nixpkgs-fmt
-
-    vscode
 
     (rust-bin.stable.latest.default.override {
       extensions = [ "rust-src" ];
