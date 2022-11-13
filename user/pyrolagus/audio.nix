@@ -1,5 +1,19 @@
 { config, pkgs, lib, ... }:
 {
+  home.packages = with pkgs; [
+    ardour
+    musescore
+    rosegarden
+    spotify
+    cadence
+    carla
+    lmms
+    milkytracker
+    pavucontrol
+    qjackctl
+    qsynth
+  ];
+
   services.fluidsynth = {
     enable = true;
     soundService = "pipewire-pulse";
