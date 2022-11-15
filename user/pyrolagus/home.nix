@@ -108,8 +108,7 @@ in
 
   programs.emacs = {
     enable = true;
-    extraPackages = let epkgs = pkgs.emacsPackages;
-      in [ epkgs.proof-general ];
+    extraPackages = epkgs: [ epkgs.proof-general ];
   };
 
   /*
