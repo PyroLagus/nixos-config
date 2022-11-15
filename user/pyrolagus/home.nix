@@ -108,7 +108,7 @@ in
 
   programs.emacs = {
     enable = true;
-    extraPackages = epkgs: [ epkgs.proof-general ];
+    extraPackages = epkgs: [ epkgs.proof-general epkgs.exotica-theme ];
   };
 
   /*
