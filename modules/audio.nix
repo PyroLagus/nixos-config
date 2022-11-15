@@ -15,6 +15,7 @@
 
       wireplumber = {
         enable = true;
+        package = pkgs.wireplumber.override { bluez = pkgs.bluez };
       };
     };
     security.rtkit.enable = true;
