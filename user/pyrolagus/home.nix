@@ -106,7 +106,11 @@ in
     MOZ_USE_XINPUT2 = "1";
   };
 
-  programs.emacs.enable = true;
+  programs.emacs = {
+    enable = true;
+    extraPackages = let epkgs = pkgs.emacsPackages;
+      in [ epkgs.proof-general ];
+  }
 
   /*
     programs.vscode = {
