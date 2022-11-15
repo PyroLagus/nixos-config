@@ -147,7 +147,7 @@ with lib;
             "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl -d amdgpu_bl0 s 10%-";
             "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl -d amdgpu_bl0 s +10%";
 
-            "Print" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot save output ${config.home.homeDirectory}/Pictures/screenshots/\$(${pkgs.coreutils}/bin/date --rfc-3339=ns).png";
+            "Print" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot save output \"${config.home.homeDirectory}/Pictures/screenshots/\$(${pkgs.coreutils}/bin/date --iso-8601=ns).png\"";
 
             "${modifier}+p" = "exec ${pkgs.rofi-pass}/bin/rofi-pass";
             "${modifier}+m" = "exec ${pkgs.wofi-emoji}/bin/wofi-emoji";
