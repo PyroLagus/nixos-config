@@ -110,7 +110,7 @@ in
     enable = true;
     extraPackages = let epkgs = pkgs.emacsPackages;
       in [ epkgs.proof-general ];
-  }
+  };
 
   /*
     programs.vscode = {
