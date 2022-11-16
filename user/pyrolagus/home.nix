@@ -109,6 +109,20 @@ in
   programs.emacs = {
     enable = true;
     extraPackages = epkgs: [ epkgs.proof-general epkgs.exotica-theme ];
+    extraConfig = ''
+      (setq evilNormalColor "#D2527F") 
+      (setq evilInsertColor "#2ABB9B")
+      (setq evil-normal-state-cursor `((bar . 3) ,evilNormalColor)) 
+      (setq evil-insert-state-cursor `((bar . 3) ,evilInsertColor))
+ 
+      (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
+      (set-face-attribute
+        'spaceline-evil-normal nil :background evilNormalColor :foreground "black")
+      (set-face-attribute
+        'spaceline-evil-visual nil :background "#344256" :foreground "black")
+      (set-face-attribute
+        'spaceline-evil-insert nil :background evilInsertColor :foreground "black")
+    '';
   };
 
   /*
