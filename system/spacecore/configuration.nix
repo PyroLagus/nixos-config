@@ -6,6 +6,8 @@
 
   hardware.nitrokey.enable = true;
 
+  users.groups.nitrokey = { };
+
   # Disable useless backlight service
   systemd.services."systemd-backlight@backlight:acpi_video0".enable = false;
 
