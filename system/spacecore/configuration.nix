@@ -8,6 +8,23 @@
 
   users.groups.nitrokey = { };
 
+    services.udev.packages = [
+    (pkgs.writeTextFile {
+      name = "nitrokey3-udev-rules";
+      text = ''
+        ACTION!="add|change", GOTO="u2f_end"
+        # Nitrokey 3
+        KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="20a0", ATTRS{idProduct}=="42b2", TAG+="uaccess"
+        # Nitrokey 3 Bootloader
+        KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="20a0", ATTRS{idProduct}=="42dd", TAG+="uaccess"
+        # Nitrokey 3 Bootloader NRF
+        ATTRS{idVendor}=="20a0", ATTRS{idProduct}=="42e8", TAG+="uaccess"
+        LABEL="u2f_end"
+      '';
+      destination = "/etc/udev/rules.d/41-nitrokey3.rules";
+    })
+  ];
+
   # Disable useless backlight service
   systemd.services."systemd-backlight@backlight:acpi_video0".enable = false;
 
