@@ -45,6 +45,9 @@ in
     neofetch
     nixpkgs-fmt
     obsidian
+    passage
+    age-plugin-yubikey
+    rage
     passff-host
     pferd
     rr
