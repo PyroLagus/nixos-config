@@ -64,8 +64,8 @@ in
     };
 
     systemd.services = genAttrs
-      (concatMap (name: ["network-link-${name}" "network-addresses-${name}"]) (attrNames optionalInterfaces))
-      (name: { wantedBy = lib.mkForce []; });
+      (concatMap (name: [ "network-link-${name}" "network-addresses-${name}" ]) (attrNames optionalInterfaces))
+      (name: { wantedBy = lib.mkForce [ ]; });
 
     services = {
       resolved = {
