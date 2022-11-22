@@ -8,7 +8,7 @@
 
   users.groups.nitrokey = { };
 
-    services.udev.packages = [
+  services.udev.packages = [
     (pkgs.writeTextFile {
       name = "nitrokey3-udev-rules";
       text = ''
