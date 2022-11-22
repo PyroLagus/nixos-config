@@ -70,6 +70,7 @@
     man-pages-posix
     ncdu
     nitrokey-app
+    pam_u2f
     psmisc
     usbguard
     usbutils
