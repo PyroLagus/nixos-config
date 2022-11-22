@@ -53,6 +53,7 @@
     mtr.enable = true;
     udevil.enable = true;
     dconf.enable = true;
+    adb.enable = true;
   };
 
   services = {
