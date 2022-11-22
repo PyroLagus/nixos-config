@@ -11,7 +11,7 @@
   security.pam.u2f = {
     enable = true;
     control = "sufficient";
-    authFile = "/run/agenix/u2f-mappings";
+    authFile = config.age.secrets.u2f-mappings.path;
   };
 
   services.udev.packages = [
