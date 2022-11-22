@@ -8,6 +8,12 @@
 
   users.groups.nitrokey = { };
 
+  security.pam.u2f = {
+    enable = true;
+    control = "sufficient";
+    authFile = "/run/agenix/u2f-mappings";
+  };
+
   services.udev.packages = [
     (pkgs.writeTextFile {
       name = "nitrokey3-udev-rules";
