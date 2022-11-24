@@ -22,6 +22,8 @@
 
   services.openssh.enable = true;
 
+  networking.useNetworkd = true;
+
   networking.firewall.allowedTCPPorts = [ 3000 3001 ];
   networking.firewall.allowedUDPPorts = [ 3000 3001 ];
 }
