@@ -28,8 +28,8 @@ with lib;
 
         input = {
           "type:keyboard" = {
-            xkb_layout = "de";
-            xkb_variant = "neo";
+            xkb_layout = "de,de";
+            xkb_variant = "neo,";
           };
           "type:touchpad" = {
             dwt = "enabled";
