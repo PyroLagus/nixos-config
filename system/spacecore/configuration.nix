@@ -57,7 +57,6 @@
   };
 
   services = {
-    earlyoom.enable = true;
     printing.enable = true;
     tlp.enable = true;
     upower.enable = true;
