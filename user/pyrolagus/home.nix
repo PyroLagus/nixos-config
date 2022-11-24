@@ -28,7 +28,7 @@ in
     blender
     bluez-tools
     eiskaltdcpp
-    factorio
+    #factorio
     ghidra-bin
     git-crypt
     helm
