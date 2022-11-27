@@ -22,6 +22,7 @@
     skim
     tokei
     unzip
+    xplr
   ];
 
   programs.zsh = {
