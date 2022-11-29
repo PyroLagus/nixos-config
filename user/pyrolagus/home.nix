@@ -30,6 +30,16 @@ in
     eiskaltdcpp
     #factorio
     ghidra-bin
+    #godot
+    (godot_4.overrideAttrs (old: {
+      version = "4.0-master";
+      src = fetchFromGitHub {
+        owner = "godotengine";
+        repo = "godot";
+        rev = "cdd99e9bec16db60efd894a06826f6fea139d00d";
+        sha256 = "sha256-N1aO9XI1mwmVl9DypNM3DAA0QBDRa81l+qV9Q3XZxdM=";
+      };
+    }))
     git-crypt
     helm
     helvum
