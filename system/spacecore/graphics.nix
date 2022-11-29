@@ -88,4 +88,5 @@
       daemon.enable = true;
     };
   };
+  boot.initrd.kernelModules = [ "amdgpu" ];
 }
