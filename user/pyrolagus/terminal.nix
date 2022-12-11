@@ -12,7 +12,7 @@
     httpie
     hyperfine
     kalker
-    khal
+    #khal
     mc
     niv
     nix-index
