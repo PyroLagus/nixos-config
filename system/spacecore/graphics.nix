@@ -96,6 +96,7 @@
     desktopManager = {
       xterm.enable = false;
     };
+    displayManager.startx.enable = true;
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
