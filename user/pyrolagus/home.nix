@@ -17,6 +17,8 @@ in
 
   ucfg.graphical.sway.enable = true;
 
+  xsession.windowManager.i3.enable = true;
+
   #accounts.email.accounts.main.himalaya.enable = true;
   #programs.himalaya.enable = true;
 
