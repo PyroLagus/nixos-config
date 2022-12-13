@@ -72,6 +72,7 @@
 
   hardware = {
     opengl = {
+      enable = true;
       driSupport = true;
       driSupport32Bit = true;
 
@@ -88,5 +89,22 @@
       daemon.enable = true;
     };
   };
+
+  environment.pathsToLink = [ "/libexec" ];
+  services.xserver = {
+    enable = true;
+    desktopManager = {
+      xterm.enable = false;
+    };
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+        dmenu
+        i3status
+        i3lock
+      ];
+    };
+  };
+
   #boot.initrd.kernelModules = [ "amdgpu" ];
 }
