@@ -83,6 +83,9 @@
         vaapiVdpau
         libvdpau-va-gl
       ];
+      extraPackages32 = with pkgs.pkgsi686Linux; [
+        libva
+      ];
     };
     opentabletdriver = {
       enable = true;
