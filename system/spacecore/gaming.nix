@@ -1,7 +1,7 @@
 { config, pkgs, lib, nixpkgs, ... }:
 {
   programs.steam.enable = true;
-  programs.gamemode.enable = true;
+  programs.gamemode.enable = false;
 
   services.factorio.openFirewall = true;
 
