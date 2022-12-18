@@ -9,7 +9,7 @@
     fd
     helix
     himalaya
-    httpie
+    #httpie
     hyperfine
     kalker
     #khal
