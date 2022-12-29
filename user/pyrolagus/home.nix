@@ -70,6 +70,29 @@ in
     yt-dlp
     zam-plugins
 
+    angband
+    boohu
+    brogue
+    crawl
+    crawlTiles
+    everspace
+    harmonist
+    hyperrogue
+    infra-arcana
+    ivan
+    umoria
+    nethack
+    nethack-qt
+    unnethack
+    cataclysm-dda-git
+    keeperrl
+    rogue
+    sil
+    sil-q
+    tome4
+    dwarf-fortress
+    dwarf-therapist
+
     (rust-bin.stable.latest.default.override {
       extensions = [ "rust-src" ];
     })
