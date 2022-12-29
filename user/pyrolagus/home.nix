@@ -82,7 +82,7 @@ in
     ivan
     umoria
     nethack
-    nethack-qt
+    #nethack-qt
     unnethack
     cataclysm-dda-git
     keeperrl
