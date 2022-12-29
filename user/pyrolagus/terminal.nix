@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }:
 {
   home.packages = with pkgs; [
+    asciinema
     bat
     bottom
     comma
@@ -23,6 +24,7 @@
     tokei
     unzip
     xplr
+    vhs
   ];
 
   programs.zsh = {
