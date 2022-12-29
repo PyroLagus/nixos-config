@@ -75,7 +75,7 @@ in
     brogue
     crawl
     crawlTiles
-    everspace
+    #everspace
     harmonist
     hyperrogue
     infra-arcana
