@@ -28,8 +28,8 @@ with lib;
 
         input = {
           "type:keyboard" = {
-            xkb_layout = "de,de";
-            xkb_variant = "neo,";
+            xkb_layout = "de,de,us";
+            xkb_variant = "neo,,";
             xkb_options = "grp:ctrl_alt_toggle";
           };
           "type:touchpad" = {
