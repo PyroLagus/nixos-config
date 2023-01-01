@@ -32,7 +32,7 @@ in
     eiskaltdcpp
     #factorio
     ghidra-bin
-    #godot
+    godot
     git-crypt
     helm
     helvum
