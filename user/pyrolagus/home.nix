@@ -90,7 +90,13 @@ in
     sil
     sil-q
     tome4
-    dwarf-fortress
+
+
+    (pkgs.dwarf-fortress-packages.dwarf-fortress-full.override {
+      theme = "cla";
+      enableIntro = false;
+      enableFPS = true;
+    })
     dwarf-therapist
 
     (rust-bin.stable.latest.default.override {
