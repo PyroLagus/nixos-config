@@ -56,6 +56,22 @@
         "type": "github"
       }
     },
+    "musescore4": {
+      "locked": {
+        "lastModified": 1672491483,
+        "narHash": "sha256-znCJQeUTG5sMs50xA+mLznpq42UMbSm+N1v2SclTGvQ=",
+        "owner": "doronbehar",
+        "repo": "nixpkgs",
+        "rev": "9747349e9db3e8132dcea8b652ae7e6c81ae5324",
+        "type": "github"
+      },
+      "original": {
+        "owner": "doronbehar",
+        "repo": "nixpkgs",
+        "rev": "9747349e9db3e8132dcea8b652ae7e6c81ae5324",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1672791794,
@@ -125,6 +141,7 @@
       "inputs": {
         "agenix": "agenix",
         "home-manager": "home-manager",
+        "musescore4": "musescore4",
         "nixpkgs": "nixpkgs",
         "nixpkgs-main": "nixpkgs-main",
         "nixpkgs-unstable": "nixpkgs-unstable",
