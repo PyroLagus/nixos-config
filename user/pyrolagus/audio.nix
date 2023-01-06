@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     ardour
-    musescore
+    musescore4.musescore
     rosegarden
     spotify
     cadence
