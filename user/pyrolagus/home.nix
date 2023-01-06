@@ -41,6 +41,7 @@ in
     inetutils
     inkscape
     ldtk
+    libresprite
     libnotify
     lldb
     minecraft
