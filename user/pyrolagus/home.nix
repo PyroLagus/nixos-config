@@ -40,6 +40,7 @@ in
     imv
     inetutils
     inkscape
+    ldtk
     libnotify
     lldb
     minecraft
