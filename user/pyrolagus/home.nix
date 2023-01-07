@@ -19,8 +19,12 @@ in
 
   xsession.windowManager.i3.enable = true;
 
-  #accounts.email.accounts.main.himalaya.enable = true;
-  #programs.himalaya.enable = true;
+  accounts.email.accounts.main.himalaya = {
+    enable = true;
+    backend = "imap";
+    sender = "smtp";
+  };
+  programs.himalaya.enable = true;
 
   home.packages = with pkgs; [
     (discord.override { nss = nss_latest; })
