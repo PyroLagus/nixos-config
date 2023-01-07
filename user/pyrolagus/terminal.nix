@@ -4,6 +4,7 @@
     asciinema
     bat
     bottom
+    btop
     comma
     du-dust
     dutree
