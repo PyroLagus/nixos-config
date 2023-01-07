@@ -81,7 +81,7 @@
               home-manager.users.pyrolagus.imports = [
                 ./user/pyrolagus
                 private.nixosModules.user.pyrolagus.ssh
-                #private.nixosModules.user.pyrolagus.email
+                private.nixosModules.user.pyrolagus.email
               ];
             }
           ];
