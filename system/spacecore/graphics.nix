@@ -88,8 +88,8 @@
       ];
     };
     opentabletdriver = {
-      enable = true;
-      daemon.enable = true;
+      enable = false;
+      daemon.enable = false;
     };
   };
 
