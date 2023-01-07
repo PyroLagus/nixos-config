@@ -44,6 +44,7 @@ in
     imv
     inetutils
     inkscape
+    krita
     ldtk
     libresprite
     libnotify
