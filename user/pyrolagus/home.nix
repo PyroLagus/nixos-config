@@ -31,6 +31,12 @@ in
     sender = "smtp";
   };
 
+  accounts.email.accounts.hadiko.himalaya = {
+    enable = true;
+    backend = "imap";
+    sender = "smtp";
+  };
+
   programs.himalaya.enable = true;
 
   home.packages = with pkgs; [
