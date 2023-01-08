@@ -100,7 +100,7 @@ with lib;
             "${modifier}+e" = "layout toggle split";
 
             "${modifier}+Shift+space" = "floating toggle";
-            "${modifier}+space" = "focus mode_toggle";
+            #"${modifier}+space" = "focus mode_toggle";
 
             "${modifier}+1" = "workspace number 1";
             "${modifier}+2" = "workspace number 2";
@@ -156,6 +156,8 @@ with lib;
             "${modifier}+b" = "exec ${pkgs.wl-clipboard}/bin/wl-paste";
 
             "${modifier}+Shift+l" = "exec ${pkgs.procps}/bin/pkill -USR1 swayidle";
+
+            "${modifier}+Space" = "exec ${pkgs.swayr}/bin/swayr switch-window";
           };
 
         window = {
@@ -163,6 +165,11 @@ with lib;
         };
 
         bars = [ ];
+
+        startup = [
+          { command = "systemctl --user restart waybar"; always = true; }
+          { command = "env RUST_BACKTRACE=1 RUST_LOG=swayr=debug ${pkgs.swayr}/bin/swayrd > /tmp/swayrd.log 2>&1"; }
+        ];
       };
 
       extraSessionCommands = ''
