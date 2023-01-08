@@ -144,6 +144,7 @@ with lib;
 
             "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +10%";
             "XF86AudioLowerVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -10%";
+            "XF86AudioMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
 
             "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl -d amdgpu_bl0 s 10%-";
             "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl -d amdgpu_bl0 s +10%";
@@ -207,6 +208,7 @@ with lib;
           "sway/workspaces" = {
             disable-scroll = true;
             all-outputs = true;
+            format = "{icon}";
             format-icons = {
               "1" = "一";
               "2" = "二";
