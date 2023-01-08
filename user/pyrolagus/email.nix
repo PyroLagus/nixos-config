@@ -19,4 +19,10 @@
     backend = "imap";
     sender = "smtp";
   };
+
+  accounts.email.accounts.lila-pause.himalaya = {
+    enable = true;
+    backend = "imap";
+    sender = "smtp";
+  };
 }
