@@ -18,6 +18,7 @@
           slurp
           sway-contrib.grimshot
           swayidle
+          swayr
           swaylock
           waybar
           wl-clipboard
