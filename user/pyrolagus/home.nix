@@ -30,6 +30,7 @@ in
     #factorio
     ghidra-bin
     godot
+    godot-export-templates
     git-crypt
     helm
     helvum
