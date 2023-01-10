@@ -18,6 +18,7 @@
     mc
     niv
     nix-index
+    p7zip
     ripgrep-all
     rnote
     sd
