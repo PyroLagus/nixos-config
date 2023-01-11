@@ -2,16 +2,24 @@
 {
   home.packages = with pkgs; [
     ardour
+    bambootracker
+    cheesecutter
     musescore4.musescore
     rosegarden
     spotify
     cadence
     carla
+    furnace
+    hivelytracker
+    klystrack
+    littlegptracker
     lmms
     milkytracker
     pavucontrol
     qjackctl
     qsynth
+    renoise
+    schismtracker
   ];
 
   services.fluidsynth = {
