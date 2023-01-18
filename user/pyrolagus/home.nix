@@ -92,12 +92,12 @@ in
     tome4
 
 
-    (pkgs.dwarf-fortress-packages.dwarf-fortress-full.override {
-      theme = "cla";
-      enableIntro = false;
-      enableFPS = true;
-    })
-    dwarf-therapist
+    #(pkgs.dwarf-fortress-packages.dwarf-fortress-full.override {
+    #  theme = "cla";
+    #  enableIntro = false;
+    #  enableFPS = true;
+    #})
+    #dwarf-therapist
 
     (rust-bin.stable.latest.default.override {
       extensions = [ "rust-src" ];
