@@ -33,7 +33,6 @@ in
     godot-export-templates
     git-crypt
     helm
-    helvum
     hexchat
     imv
     inetutils
