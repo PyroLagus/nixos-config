@@ -21,6 +21,8 @@
     qsynth
     renoise
     schismtracker
+    qpwgraph
+    pw-viz
   ];
 
   services.fluidsynth = {
