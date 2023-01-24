@@ -24,7 +24,7 @@
   ];
 
   services.fluidsynth = {
-    enable = true;
+    enable = false;
     soundService = "pipewire-pulse";
     extraOptions = [
       "--connect-jack-outputs"
