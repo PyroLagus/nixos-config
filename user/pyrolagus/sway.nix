@@ -44,13 +44,13 @@ with lib;
             bg = "${./wallpaper.jpg} fit";
           };
 
-          eDP-1 = {
-            pos = "0 1200";
-          };
+#          eDP-1 = {
+#            pos = "0 1200";
+#          };
 
-          HDMI-A-1 = {
-            pos = "0 0";
-          };
+#          HDMI-A-1 = {
+#            pos = "0 0";
+#          };
         };
 
         fonts = {
