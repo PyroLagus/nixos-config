@@ -34,7 +34,7 @@
   };
 
   services.easyeffects = {
-    enable = true;
+    enable = false;
   };
 
   systemd.user.services.mpris-proxy = {
