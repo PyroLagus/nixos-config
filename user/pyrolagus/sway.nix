@@ -221,7 +221,7 @@ with lib;
           ];
         };
       };
-    }
+    };
 
     programs.waybar = {
       enable = true;
