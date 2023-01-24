@@ -10,6 +10,7 @@ with lib;
   config = mkIf config.ucfg.graphical.sway.enable {
 
     home.packages = with pkgs; [
+      kanshi
       waybar
     ];
 
