@@ -23,6 +23,12 @@
     schismtracker
     qpwgraph
     pw-viz
+
+    helio-workstation
+    sunvox
+    yoshimi
+    zyn-fusion
+    helm
   ];
 
   services.fluidsynth = {
