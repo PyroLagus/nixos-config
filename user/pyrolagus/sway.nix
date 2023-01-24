@@ -198,6 +198,31 @@ with lib;
         ];
       };
 
+    services.kanshi = {
+      enable = true;
+      profiles = {
+        single = {
+          outputs = [
+            {
+              criteria = "eDP-1";
+              mode = "1920x1080@60Hz";
+            }
+          ];
+        };
+        infobib = {
+          outputs = [
+            {
+              criteria = "eDP-1";
+            }
+            {
+              criteria = "LTM HDMI TV 0x00006B90";
+              mode = "1920x1080@60Hz";
+            }
+          ];
+        };
+      };
+    }
+
     programs.waybar = {
       enable = true;
       systemd.enable = true;
