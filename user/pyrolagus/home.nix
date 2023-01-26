@@ -91,6 +91,10 @@ in
     sil-q
     tome4
 
+    ahoviewer
+    yacreader
+    mcomix
+
 
     #(pkgs.dwarf-fortress-packages.dwarf-fortress-full.override {
     #  theme = "cla";
