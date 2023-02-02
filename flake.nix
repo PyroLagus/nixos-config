@@ -72,7 +72,7 @@
                 };
               };
             }
-            agenix.nixosModule
+            agenix.nixosModules.default
             private.nixosModules.agenixSecrets
             home-manager.nixosModules.home-manager
             {
