@@ -19,7 +19,7 @@
     pavucontrol
     qjackctl
     qsynth
-    renoise
+    #renoise
     schismtracker
     qpwgraph
     #pw-viz
