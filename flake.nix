@@ -41,7 +41,7 @@
             inherit system;
             config.allowUnfree = true;
             overlays = [
-              agenix.overlay
+              agenix.overlays.default
               unstable-overlay
               main-overlay
               musescore-overlay
