@@ -38,6 +38,12 @@ with lib;
             tap = "enabled";
             natural_scroll = "enabled";
           };
+          "type:touch" = {
+            map_to_output = "eDP-1";
+          };
+          "type:tablet_tool" = {
+            map_to_output = "eDP-1";
+          };
         };
 
         output = {
