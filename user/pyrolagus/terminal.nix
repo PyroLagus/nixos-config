@@ -27,6 +27,7 @@
     unzip
     xplr
     vhs
+    jq
   ];
 
   programs.zsh = {
