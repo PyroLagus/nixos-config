@@ -27,6 +27,7 @@ in
     blender
     bluez-tools
     eiskaltdcpp
+    evince
     #factorio
     ghidra-bin
     godot
