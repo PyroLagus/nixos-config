@@ -66,6 +66,11 @@
                   flake = nixpkgs;
                 };
 
+                nixpkgs-main = {
+                  from = { id = "nixpkgs-main"; type = "indirect"; };
+                  flake = nixpkgs-main;
+                };
+
                 rust-overlay = {
                   from = { id = "rust-overlay"; type = "indirect"; };
                   flake = rust-overlay;
