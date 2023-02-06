@@ -28,6 +28,7 @@
     xplr
     vhs
     jq
+    nurl
   ];
 
   programs.zsh = {
