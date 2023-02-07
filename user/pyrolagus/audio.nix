@@ -5,7 +5,7 @@
     bambootracker
     cheesecutter
     #helvum
-    musescore4.musescore
+    musescore
     rosegarden
     spotify
     cadence
