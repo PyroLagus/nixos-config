@@ -5,8 +5,7 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "nixpkgs/nixpkgs-unstable";
     nixpkgs-main.url = "github:NixOS/nixpkgs";
-
-    musescore4.url = "github:doronbehar/nixpkgs/9747349e9db3e8132dcea8b652ae7e6c81ae5324";
+    nixpkgs-staging.url = "github:NixOS/nixpkgs/staging";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -21,11 +20,12 @@
     private.inputs.agenix.follows = "agenix";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixpkgs-main, musescore4, home-manager, agenix, rust-overlay, private, ... }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixpkgs-main, nixpkgs-staging, home-manager, agenix, rust-overlay, private, ... }:
     let
       system = "x86_64-linux";
       unstable-overlay = final: prev: { unstable = nixpkgs-unstable.legacyPackages."${system}"; };
       main-overlay = final: prev: { main = nixpkgs-main.legacyPackages."${system}"; };
+      staging-overlay = final: prev: { staging = nixpkgs-staging.legacyPackages."{system}"; };
       musescore-overlay = final: prev: { musescore4 = musescore4.legacyPackages."${system}"; };
       #factorio-overlay = final: prev: { factorio = prev.callPackage ./overlays/factorio { releaseType = "alpha"; }; };
       #mkUser = username: {
@@ -44,6 +44,7 @@
               agenix.overlays.default
               unstable-overlay
               main-overlay
+              staging-overlay
               musescore-overlay
               rust-overlay.overlays.default
             ];
