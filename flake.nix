@@ -26,7 +26,6 @@
       unstable-overlay = final: prev: { unstable = nixpkgs-unstable.legacyPackages."${system}"; };
       main-overlay = final: prev: { main = nixpkgs-main.legacyPackages."${system}"; };
       staging-overlay = final: prev: { staging = nixpkgs-staging.legacyPackages."{system}"; };
-      musescore-overlay = final: prev: { musescore4 = musescore4.legacyPackages."${system}"; };
       #factorio-overlay = final: prev: { factorio = prev.callPackage ./overlays/factorio { releaseType = "alpha"; }; };
       #mkUser = username: {
       #  home-manager.users."${username}" = (import ./home-manager/common.nix) // (import ./home-manager/users/"${username}");
@@ -45,7 +44,6 @@
               unstable-overlay
               main-overlay
               staging-overlay
-              musescore-overlay
               rust-overlay.overlays.default
             ];
           };
