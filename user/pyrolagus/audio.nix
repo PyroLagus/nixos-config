@@ -4,7 +4,7 @@
     ardour
     bambootracker
     cheesecutter
-    helvum
+    staging.helvum
     musescore
     rosegarden
     spotify
@@ -22,7 +22,7 @@
     #renoise
     schismtracker
     qpwgraph
-    pw-viz
+    staging.pw-viz
 
     helio-workstation
     sunvox
