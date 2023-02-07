@@ -79,22 +79,6 @@
         "type": "github"
       }
     },
-    "musescore4": {
-      "locked": {
-        "lastModified": 1672491483,
-        "narHash": "sha256-znCJQeUTG5sMs50xA+mLznpq42UMbSm+N1v2SclTGvQ=",
-        "owner": "doronbehar",
-        "repo": "nixpkgs",
-        "rev": "9747349e9db3e8132dcea8b652ae7e6c81ae5324",
-        "type": "github"
-      },
-      "original": {
-        "owner": "doronbehar",
-        "repo": "nixpkgs",
-        "rev": "9747349e9db3e8132dcea8b652ae7e6c81ae5324",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1675673983,
@@ -121,6 +105,22 @@
       },
       "original": {
         "owner": "NixOS",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-staging": {
+      "locked": {
+        "lastModified": 1675792935,
+        "narHash": "sha256-N8RatVE3y25n46BlNDoYc+NjqpONkTwxX7OcfOZULWk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "371c2a630333eaed3a28fd3b7e7cb0ed73e4a84d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "staging",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -164,9 +164,9 @@
       "inputs": {
         "agenix": "agenix",
         "home-manager": "home-manager",
-        "musescore4": "musescore4",
         "nixpkgs": "nixpkgs",
         "nixpkgs-main": "nixpkgs-main",
+        "nixpkgs-staging": "nixpkgs-staging",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "private": "private",
         "rust-overlay": "rust-overlay"
