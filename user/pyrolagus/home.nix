@@ -95,6 +95,7 @@ in
     ahoviewer
     yacreader
     mcomix
+    wireshark
 
 
     #(pkgs.dwarf-fortress-packages.dwarf-fortress-full.override {

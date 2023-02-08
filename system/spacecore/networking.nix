@@ -24,6 +24,8 @@
 
   networking.useNetworkd = true;
 
+  programs.wireshark.enable = true;
+
   networking.firewall.allowedTCPPorts = [ 3000 3001 ];
   networking.firewall.allowedUDPPorts = [ 3000 3001 ];
 }
