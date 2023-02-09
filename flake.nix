@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "nixpkgs/nixpkgs-unstable";
-    nixpkgs-stable.url = "nixpkgs/nixpkgs-22.11";
+    nixpkgs-stable.url = "nixpkgs/nixos-22.11";
     nixpkgs-main.url = "github:NixOS/nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager";
