@@ -24,6 +24,7 @@
     sd
     skim
     tokei
+    unrar
     unzip
     xplr
     vhs
