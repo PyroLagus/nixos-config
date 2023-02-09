@@ -20,7 +20,7 @@
     private.inputs.agenix.follows = "agenix";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, nixpkgs-main, nixpkgs-staging, home-manager, agenix, rust-overlay, private, ... }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, nixpkgs-main, home-manager, agenix, rust-overlay, private, ... }:
     let
       system = "x86_64-linux";
       unstable-overlay = final: prev: { unstable = nixpkgs-unstable.legacyPackages."${system}"; };
