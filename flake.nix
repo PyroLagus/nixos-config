@@ -5,7 +5,6 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "nixpkgs/nixpkgs-unstable";
     nixpkgs-main.url = "github:NixOS/nixpkgs";
-    nixpkgs-staging.url = "github:NixOS/nixpkgs/staging";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -25,7 +24,6 @@
       system = "x86_64-linux";
       unstable-overlay = final: prev: { unstable = nixpkgs-unstable.legacyPackages."${system}"; };
       main-overlay = final: prev: { main = nixpkgs-main.legacyPackages."${system}"; };
-      staging-overlay = final: prev: { staging = nixpkgs-staging.legacyPackages."${system}"; };
       #factorio-overlay = final: prev: { factorio = prev.callPackage ./overlays/factorio { releaseType = "alpha"; }; };
       #mkUser = username: {
       #  home-manager.users."${username}" = (import ./home-manager/common.nix) // (import ./home-manager/users/"${username}");
@@ -43,7 +41,6 @@
               agenix.overlays.default
               unstable-overlay
               main-overlay
-              staging-overlay
               rust-overlay.overlays.default
             ];
           };
