@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "nixpkgs/nixpkgs-unstable";
+    nixpkgs-stable.url = "nixpkgs/nixpkgs-22.11";
     nixpkgs-main.url = "github:NixOS/nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager";
@@ -23,6 +24,7 @@
     let
       system = "x86_64-linux";
       unstable-overlay = final: prev: { unstable = nixpkgs-unstable.legacyPackages."${system}"; };
+      stable-overlay = final: prev: { stable = nixpkgs-stable.legacyPackages."${system}"; };
       main-overlay = final: prev: { main = nixpkgs-main.legacyPackages."${system}"; };
       #factorio-overlay = final: prev: { factorio = prev.callPackage ./overlays/factorio { releaseType = "alpha"; }; };
       #mkUser = username: {
@@ -40,6 +42,7 @@
             overlays = [
               agenix.overlays.default
               unstable-overlay
+              stable-overlay
               main-overlay
               rust-overlay.overlays.default
             ];
