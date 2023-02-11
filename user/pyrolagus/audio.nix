@@ -4,7 +4,7 @@
     ardour
     bambootracker
     cheesecutter
-    stable.helvum
+    #helvum
     musescore
     rosegarden
     spotify
