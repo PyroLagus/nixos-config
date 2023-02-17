@@ -41,9 +41,6 @@
             config.allowUnfree = true;
             overlays = [
               agenix.overlays.default
-              unstable-overlay
-              stable-overlay
-              main-overlay
               rust-overlay.overlays.default
             ];
           };
