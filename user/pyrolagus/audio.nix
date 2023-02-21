@@ -24,7 +24,7 @@
     qpwgraph
     #pw-viz
 
-    helio-workstation
+    #helio-workstation
     sunvox
     yoshimi
     zyn-fusion
