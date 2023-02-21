@@ -24,7 +24,7 @@ in
     alacritty
     atool
     atuin
-    #blender
+    blender
     bluez-tools
     eiskaltdcpp
     evince
