@@ -98,8 +98,6 @@ in
     wireshark
 
     flips
-
-    snes9x-gtk
     
     retroarchFull
 
