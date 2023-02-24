@@ -99,6 +99,10 @@ in
 
     flips
 
+    snes9x-gtk
+    
+    retroarchFull
+
 
     #(pkgs.dwarf-fortress-packages.dwarf-fortress-full.override {
     #  theme = "cla";
