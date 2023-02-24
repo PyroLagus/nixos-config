@@ -97,6 +97,8 @@ in
     mcomix
     wireshark
 
+    flips
+
 
     #(pkgs.dwarf-fortress-packages.dwarf-fortress-full.override {
     #  theme = "cla";
