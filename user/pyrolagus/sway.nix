@@ -107,6 +107,8 @@ with lib;
             "${modifier}+e" = "layout toggle split";
 
             "${modifier}+Shift+space" = "floating toggle";
+
+            "${modifier}+j" = "sticky toggle";
             #"${modifier}+space" = "focus mode_toggle";
 
             "${modifier}+1" = "workspace number 1";
