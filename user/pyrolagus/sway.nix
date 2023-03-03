@@ -160,6 +160,7 @@ with lib;
             "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl -d amdgpu_bl0 s +10%";
 
             "Print" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot save output \"${config.home.homeDirectory}/Pictures/screenshots/\$(${pkgs.coreutils}/bin/date --iso-8601=ns).png\"";
+            "Shift+Print" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area";
 
             "${modifier}+p" = "exec ${pkgs.rofi-pass}/bin/rofi-pass";
             "${modifier}+m" = "exec ${pkgs.wofi-emoji}/bin/wofi-emoji";
