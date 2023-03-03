@@ -268,7 +268,7 @@ with lib;
       };
     };
 
-    programs.mako = {
+    services.mako = {
       enable = true;
       extraConfig = ''
         [urgency=critical]
