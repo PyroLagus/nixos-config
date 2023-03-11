@@ -2,6 +2,7 @@
 {
   imports = [
     ./audio.nix
+    ./ausweisapp.nix
     ./boot.nix
     ./configuration.nix
     ./gaming.nix
