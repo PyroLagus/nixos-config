@@ -54,18 +54,13 @@
     udevil.enable = true;
     dconf.enable = true;
     adb.enable = true;
-    ausweisapp.enable = true;
+
   };
 
   services = {
     printing.enable = true;
     tlp.enable = true;
     upower.enable = true;
-
-    pcscd = {
-      enable = true;
-      plugins = with pkgs; [ ccid pcsc-cyberjack ];
-    };
 
     #usbguard = {
     #  enable = true;
