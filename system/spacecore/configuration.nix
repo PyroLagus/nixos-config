@@ -62,6 +62,11 @@
     tlp.enable = true;
     upower.enable = true;
 
+    pcscd = {
+      enable = true;
+      plugins = with pkgs; [ ccid pcsc-cyberjack ];
+    };
+
     #usbguard = {
     #  enable = true;
     #  rules = builtins.readFile ./secrets/system/usbguard_rules.conf;
