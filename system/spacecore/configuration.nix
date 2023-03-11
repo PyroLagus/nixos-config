@@ -54,6 +54,7 @@
     udevil.enable = true;
     dconf.enable = true;
     adb.enable = true;
+    ausweisapp.enable = true;
   };
 
   services = {
