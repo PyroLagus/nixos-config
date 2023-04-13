@@ -186,6 +186,8 @@ in
       ytdl-format = "bestvideo+bestaudio";
       alang = "ja, jap, eng, en, ger, de";
       gpu-context = "wayland";
+      screenshot-template = "%f-%P_%00n";
+      screenshot-directory = "./mpv-shots/";
     };
   };
 
