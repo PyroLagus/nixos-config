@@ -32,6 +32,7 @@ in
     ghidra-bin
     godot
     godot-export-templates
+    gimp
     git-crypt
     helm
     hexchat
