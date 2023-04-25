@@ -1,0 +1,344 @@
+diff --git a/net/mac80211/mlme.c b/net/mac80211/mlme.c
+index 60792dfabc9d..7198a41b4b10 100644
+--- a/net/mac80211/mlme.c
++++ b/net/mac80211/mlme.c
+@@ -1019,7 +1019,9 @@ static size_t ieee80211_add_before_he_elems(struct sk_buff *skb,
+ static void ieee80211_assoc_add_ml_elem(struct ieee80211_sub_if_data *sdata,
+ 					struct sk_buff *skb, u16 capab,
+ 					const struct element *ext_capa,
+-					const u16 *present_elems);
++					const u16 *present_elems, bool dont_touch_my_ies);
++
++static const u8 NINTENDO_SUPP_RATES[2] = { 0x82, 0x84 };
+ 
+ static size_t ieee80211_assoc_link_elems(struct ieee80211_sub_if_data *sdata,
+ 					 struct sk_buff *skb, u16 *capab,
+@@ -1028,7 +1030,8 @@ static size_t ieee80211_assoc_link_elems(struct ieee80211_sub_if_data *sdata,
+ 					 size_t extra_elems_len,
+ 					 unsigned int link_id,
+ 					 struct ieee80211_link_data *link,
+-					 u16 *present_elems)
++					 u16 *present_elems,
++					 bool dont_touch_my_ies)
+ {
+ 	enum nl80211_iftype iftype = ieee80211_vif_type_p2p(&sdata->vif);
+ 	struct ieee80211_if_managed *ifmgd = &sdata->u.mgd;
+@@ -1078,16 +1081,25 @@ static size_t ieee80211_assoc_link_elems(struct ieee80211_sub_if_data *sdata,
+ 	iftd = ieee80211_get_sband_iftype_data(sband, iftype);
+ 
+ 	if (sband->band == NL80211_BAND_2GHZ) {
+-		*capab |= WLAN_CAPABILITY_SHORT_SLOT_TIME;
++		if (!dont_touch_my_ies)
++			*capab |= WLAN_CAPABILITY_SHORT_SLOT_TIME;
+ 		*capab |= WLAN_CAPABILITY_SHORT_PREAMBLE;
+ 	}
+ 
+ 	if ((cbss->capability & WLAN_CAPABILITY_SPECTRUM_MGMT) &&
+-	    ieee80211_hw_check(&local->hw, SPECTRUM_MGMT))
++	    ieee80211_hw_check(&local->hw, SPECTRUM_MGMT) && !dont_touch_my_ies)
+ 		*capab |= WLAN_CAPABILITY_SPECTRUM_MGMT;
+ 
+-	if (sband->band != NL80211_BAND_S1GHZ)
++	if (sband->band != NL80211_BAND_S1GHZ) {
++		if (dont_touch_my_ies) {
++			struct ieee80211_bss *bss = (struct ieee80211_bss*) cbss->priv;
++			assoc_data->supp_rates = NINTENDO_SUPP_RATES;
++			assoc_data->supp_rates_len = 2;
++			bss->supp_rates_len = assoc_data->supp_rates_len;
++			memcpy(bss->supp_rates, assoc_data->supp_rates, assoc_data->supp_rates_len);
++		}
+ 		ieee80211_assoc_add_rates(skb, width, sband, assoc_data);
++	}
+ 
+ 	if (*capab & WLAN_CAPABILITY_SPECTRUM_MGMT ||
+ 	    *capab & WLAN_CAPABILITY_RADIO_MEASURE) {
+@@ -1190,7 +1202,7 @@ static size_t ieee80211_assoc_link_elems(struct ieee80211_sub_if_data *sdata,
+ 
+ 	if (link_id == assoc_data->assoc_link_id)
+ 		ieee80211_assoc_add_ml_elem(sdata, skb, orig_capab, ext_capa,
+-					    present_elems);
++					    present_elems, dont_touch_my_ies);
+ 
+ 	/* crash if somebody gets it wrong */
+ 	present_elems = NULL;
+@@ -1268,7 +1280,7 @@ static void ieee80211_add_non_inheritance_elem(struct sk_buff *skb,
+ static void ieee80211_assoc_add_ml_elem(struct ieee80211_sub_if_data *sdata,
+ 					struct sk_buff *skb, u16 capab,
+ 					const struct element *ext_capa,
+-					const u16 *outer_present_elems)
++					const u16 *outer_present_elems, bool dont_touch_my_ies)
+ {
+ 	struct ieee80211_local *local = sdata->local;
+ 	struct ieee80211_if_managed *ifmgd = &sdata->u.mgd;
+@@ -1356,7 +1368,8 @@ static void ieee80211_assoc_add_ml_elem(struct ieee80211_sub_if_data *sdata,
+ 							extra_elems,
+ 							extra_elems_len,
+ 							link_id, NULL,
+-							link_present_elems);
++							link_present_elems,
++							dont_touch_my_ies);
+ 		if (extra_elems)
+ 			skb_put_data(skb, extra_elems + extra_used,
+ 				     extra_elems_len - extra_used);
+@@ -1392,6 +1405,7 @@ static int ieee80211_send_assoc(struct ieee80211_sub_if_data *sdata)
+ 	void *capab_pos;
+ 	size_t size;
+ 	int ret;
++	bool dont_touch_my_ies = false;
+ 
+ 	/* we know it's writable, cast away the const */
+ 	if (assoc_data->ie_len)
+@@ -1408,6 +1422,26 @@ static int ieee80211_send_assoc(struct ieee80211_sub_if_data *sdata)
+ 	       (assoc_data->fils_kek_len ? 16 /* AES-SIV */ : 0) +
+ 	       9; /* WMM */
+ 
++	for (link_id = 0; link_id < IEEE80211_MLD_MAX_NUM_LINKS; link_id++) {
++		struct cfg80211_bss *cbss = assoc_data->link[link_id].bss;
++		if (!cbss)
++			continue;
++		rcu_read_lock();
++		const struct cfg80211_bss_ies *bss_ies = rcu_dereference(cbss->ies);
++		struct element *nintendo_vendor = cfg80211_find_elem(0xdd, bss_ies->data, bss_ies->len);
++		if (nintendo_vendor && nintendo_vendor->id == 0xdd && nintendo_vendor->datalen >= 6
++				&& !nintendo_vendor->data[0] && nintendo_vendor->data[1] == 9
++				&& nintendo_vendor->data[2] == 0xbf && !nintendo_vendor->data[3]
++				&& nintendo_vendor->data[4] == 0x0a && !nintendo_vendor->data[5]
++				&& assoc_data->ssid_len == 32) {
++			dont_touch_my_ies = true;
++			rcu_read_unlock();
++			printk("ndsfi  : association request matches nintendo ds conditions");
++			break;
++		}
++		rcu_read_unlock();
++	}
++
+ 	for (link_id = 0; link_id < IEEE80211_MLD_MAX_NUM_LINKS; link_id++) {
+ 		struct cfg80211_bss *cbss = assoc_data->link[link_id].bss;
+ 		const struct ieee80211_sband_iftype_data *iftd;
+@@ -1451,7 +1485,7 @@ static int ieee80211_send_assoc(struct ieee80211_sub_if_data *sdata)
+ 		size += 2 + 2 + PRESENT_ELEMS_MAX;
+ 
+ 		/* should be the same across all BSSes */
+-		if (cbss->capability & WLAN_CAPABILITY_PRIVACY)
++		if ((cbss->capability & WLAN_CAPABILITY_PRIVACY) && !dont_touch_my_ies)
+ 			capab |= WLAN_CAPABILITY_PRIVACY;
+ 	}
+ 
+@@ -1487,7 +1521,7 @@ static int ieee80211_send_assoc(struct ieee80211_sub_if_data *sdata)
+ 
+ 	skb_reserve(skb, local->hw.extra_tx_headroom);
+ 
+-	if (ifmgd->flags & IEEE80211_STA_ENABLE_RRM)
++	if ((ifmgd->flags & IEEE80211_STA_ENABLE_RRM) && !dont_touch_my_ies)
+ 		capab |= WLAN_CAPABILITY_RADIO_MEASURE;
+ 
+ 	/* Set MBSSID support for HE AP if needed */
+@@ -1536,9 +1570,11 @@ static int ieee80211_send_assoc(struct ieee80211_sub_if_data *sdata)
+ 					    assoc_data->ie,
+ 					    assoc_data->ie_len,
+ 					    assoc_data->assoc_link_id, link,
+-					    present_elems);
++					    present_elems, dont_touch_my_ies);
+ 	put_unaligned_le16(link_capab, capab_pos);
+ 
++	printk("ndsfi  : capab=%04x link_capab=%04x\n", capab, link_capab);
++
+ 	/* if present, add any custom non-vendor IEs */
+ 	if (assoc_data->ie_len) {
+ 		noffset = ieee80211_ie_split_vendor(assoc_data->ie,
+@@ -3894,6 +3930,7 @@ static void ieee80211_get_rates(struct ieee80211_supported_band *sband,
+ {
+ 	int i, j;
+ 
++	printk("ndsfi  : there are %d supp rates and %d sband rates\n", supp_rates_len, sband->n_bitrates);
+ 	for (i = 0; i < supp_rates_len; i++) {
+ 		int rate = supp_rates[i] & 0x7f;
+ 		bool is_basic = !!(supp_rates[i] & 0x80);
+@@ -3922,6 +3959,7 @@ static void ieee80211_get_rates(struct ieee80211_supported_band *sband,
+ 			br = &sband->bitrates[j];
+ 
+ 			brate = DIV_ROUND_UP(br->bitrate, (1 << shift) * 5);
++			printk("ndsfi  : brate vs rate = %02x vs %02x\n", brate, rate);
+ 			if (brate == rate) {
+ 				*rates |= BIT(j);
+ 				if (is_basic)
+@@ -7130,6 +7168,9 @@ int ieee80211_mgd_assoc(struct ieee80211_sub_if_data *sdata,
+ 	for (i = 0; i < IEEE80211_MLD_MAX_NUM_LINKS; i++)
+ 		size += req->links[i].elems_len;
+ 
++	printk("ndsfi: ieee80211_mgd_assoc: ie_len = %d, add = %d\n",
++	       req->ie_len, size - (sizeof(*assoc_data) + req->ie_len));
++
+ 	/* FIXME: no support for 4-addr MLO yet */
+ 	if (sdata->u.mgd.use_4addr && req->link_id >= 0)
+ 		return -EOPNOTSUPP;
+diff --git a/net/mac80211/util.c b/net/mac80211/util.c
+index 8c397650b96f..5fb64bab1ada 100644
+--- a/net/mac80211/util.c
++++ b/net/mac80211/util.c
+@@ -3854,15 +3854,19 @@ int ieee80211_parse_bitrates(enum nl80211_chan_width width,
+ 
+ 	*rates = 0;
+ 
++	printk("ndsfi  : parse_bitrates: %d,%d\n", srates_len, sband->n_bitrates);
+ 	for (i = 0; i < srates_len; i++) {
+ 		rate = srates[i] & 0x7f;
++		printk("ndsfi  : rate=%02x\n", rate);
+ 
+ 		for (j = 0; j < sband->n_bitrates; j++) {
+ 			br = &sband->bitrates[j];
++			printk("ndsfi  : %08x&%08x\n", rate_flags, br->flags);
+ 			if ((rate_flags & br->flags) != rate_flags)
+ 				continue;
+ 
+ 			brate = DIV_ROUND_UP(br->bitrate, (1 << shift) * 5);
++			printk("ndsfi  : brate=%02x\n", brate);
+ 			if (brate == rate) {
+ 				*rates |= BIT(j);
+ 				count++;
+diff --git a/net/wireless/nl80211.c b/net/wireless/nl80211.c
+index 4f63059efd81..8ee6fad4698f 100644
+--- a/net/wireless/nl80211.c
++++ b/net/wireless/nl80211.c
+@@ -10521,8 +10521,8 @@ static int nl80211_authenticate(struct sk_buff *skb, struct genl_info *info)
+ 	struct cfg80211_registered_device *rdev = info->user_ptr[0];
+ 	struct net_device *dev = info->user_ptr[1];
+ 	struct ieee80211_channel *chan;
+-	const u8 *bssid, *ssid;
+-	int err, ssid_len;
++	const u8 *bssid, *ssid = NULL;
++	int err, ssid_len = 0;
+ 	enum nl80211_auth_type auth_type;
+ 	struct key_parse key;
+ 	bool local_state_change;
+@@ -10535,9 +10535,6 @@ static int nl80211_authenticate(struct sk_buff *skb, struct genl_info *info)
+ 	if (!info->attrs[NL80211_ATTR_AUTH_TYPE])
+ 		return -EINVAL;
+ 
+-	if (!info->attrs[NL80211_ATTR_SSID])
+-		return -EINVAL;
+-
+ 	if (!info->attrs[NL80211_ATTR_WIPHY_FREQ])
+ 		return -EINVAL;
+ 
+@@ -10593,8 +10590,10 @@ static int nl80211_authenticate(struct sk_buff *skb, struct genl_info *info)
+ 	if (!chan)
+ 		return -EINVAL;
+ 
+-	ssid = nla_data(info->attrs[NL80211_ATTR_SSID]);
+-	ssid_len = nla_len(info->attrs[NL80211_ATTR_SSID]);
++	if (info->attrs[NL80211_ATTR_SSID]) {
++		ssid = nla_data(info->attrs[NL80211_ATTR_SSID]);
++		ssid_len = nla_len(info->attrs[NL80211_ATTR_SSID]);
++	}
+ 
+ 	if (info->attrs[NL80211_ATTR_IE]) {
+ 		req.ie = nla_data(info->attrs[NL80211_ATTR_IE]);
+@@ -10826,6 +10825,75 @@ static struct cfg80211_bss *nl80211_assoc_bss(struct cfg80211_registered_device
+ 	if (!bss)
+ 		return ERR_PTR(-ENOENT);
+ 
++	if (attrs[NL80211_ATTR_VENDOR_DATA]) {
++		struct cfg80211_internal_bss *internal_bss;
++		struct cfg80211_bss *new_bss = NULL;
++		struct cfg80211_inform_bss inf;
++		struct ieee80211_mgmt *mgmt;
++		int ies_len, mgmt_len;
++		const gfp_t gfp = GFP_ATOMIC;
++
++		internal_bss = (const struct cfg80211_internal_bss*) ((u8*) bss - (sizeof(struct cfg80211_internal_bss) - sizeof(struct cfg80211_bss)));
++		ssid = nla_data(attrs[NL80211_ATTR_VENDOR_DATA]);
++		ssid_len = nla_len(attrs[NL80211_ATTR_VENDOR_DATA]);
++		if (ssid_len > 0xff) {
++			new_bss = ERR_PTR(-EINVAL);
++			goto nl80211_assoc_bss_ovrrd_fail;
++		}
++
++		rcu_read_lock();
++		ies_len = rcu_access_pointer(bss->ies)->len;
++		mgmt_len = offsetof(struct ieee80211_mgmt, u.beacon.variable) + 2 + ssid_len + ies_len;
++		mgmt = kzalloc(mgmt_len, gfp);
++		if (!mgmt) {
++			rcu_read_unlock();
++			new_bss = ERR_PTR(-ENOMEM);
++			goto nl80211_assoc_bss_ovrrd_fail;
++		}
++		memcpy(mgmt->u.beacon.variable + 2 + ssid_len, rcu_access_pointer(bss->ies)->data, ies_len);
++		rcu_read_unlock();
++
++		((u8*)&mgmt->frame_control)[0] = 0x80;
++		memset(mgmt->da, 0xff, 6);
++		memcpy(mgmt->sa, bss->bssid, 6);
++		memcpy(mgmt->bssid, bss->bssid, 6);
++		mgmt->u.beacon.beacon_int = cpu_to_le16(bss->beacon_interval);
++		((u8*)&mgmt->u.beacon.capab_info)[0] = 0x21;
++		mgmt->u.beacon.variable[1] = ssid_len;
++		memcpy(mgmt->u.beacon.variable + 2, ssid, ssid_len);
++
++		printk(KERN_INFO "ndsfi mgmt frame uwu (%d):\n", mgmt_len);
++		{
++			char dbgc[mgmt_len * 3];
++			for (int i = 0; i < mgmt_len; ++i) {
++				u8 b = ((u8*)mgmt)[i];
++				char c1 = (b >> 4) + 48, c2 = (b & 15) + 48;
++				if (c1 > 57) c1 += 39;
++				if (c2 > 57) c2 += 39;
++				dbgc[i * 3] = c1;
++				dbgc[i * 3 + 1] = c2;
++				dbgc[i * 3 + 2] = (i == (mgmt_len - 1)) ? 0 : 32;
++			}
++			printk(KERN_INFO " ndsfi mgmt frame data %s\n", dbgc);
++		}
++
++		inf.chan = bss->channel;
++		inf.scan_width = bss->scan_width;
++		inf.signal = bss->signal;
++		inf.boottime_ns = internal_bss->ts_boottime;
++		inf.parent_tsf = internal_bss->parent_tsf;
++		inf.chains = bss->chains;
++		memcpy(inf.chain_signal, bss->chain_signal, IEEE80211_MAX_CHAINS);
++
++		new_bss = cfg80211_inform_bss_frame_data(&rdev->wiphy, &inf, mgmt, mgmt_len, gfp);
++		kfree(mgmt);
++		if (!new_bss) new_bss = ERR_PTR(-EIO);
++
++nl80211_assoc_bss_ovrrd_fail:
++		cfg80211_put_bss(&rdev->wiphy, bss);
++		return new_bss;
++	}
++
+ 	return bss;
+ }
+ 
+@@ -10835,15 +10903,15 @@ static int nl80211_associate(struct sk_buff *skb, struct genl_info *info)
+ 	struct net_device *dev = info->user_ptr[1];
+ 	struct cfg80211_assoc_request req = {};
+ 	struct nlattr **attrs = NULL;
+-	const u8 *ap_addr, *ssid;
++	const u8 *ap_addr, *ssid = NULL;
+ 	unsigned int link_id;
+-	int err, ssid_len;
++	int err, ssid_len = 0;
+ 
+ 	if (dev->ieee80211_ptr->conn_owner_nlportid &&
+ 	    dev->ieee80211_ptr->conn_owner_nlportid != info->snd_portid)
+ 		return -EPERM;
+ 
+-	if (!info->attrs[NL80211_ATTR_SSID])
++	if (!info->attrs[NL80211_ATTR_SSID] == !info->attrs[NL80211_ATTR_VENDOR_DATA])
+ 		return -EINVAL;
+ 
+ 	if (!rdev->ops->assoc)
+@@ -10853,8 +10921,10 @@ static int nl80211_associate(struct sk_buff *skb, struct genl_info *info)
+ 	    dev->ieee80211_ptr->iftype != NL80211_IFTYPE_P2P_CLIENT)
+ 		return -EOPNOTSUPP;
+ 
+-	ssid = nla_data(info->attrs[NL80211_ATTR_SSID]);
+-	ssid_len = nla_len(info->attrs[NL80211_ATTR_SSID]);
++	if (info->attrs[NL80211_ATTR_SSID]) {
++		ssid = nla_data(info->attrs[NL80211_ATTR_SSID]);
++		ssid_len = nla_len(info->attrs[NL80211_ATTR_SSID]);
++	}
+ 
+ 	if (info->attrs[NL80211_ATTR_IE]) {
+ 		req.ie = nla_data(info->attrs[NL80211_ATTR_IE]);
