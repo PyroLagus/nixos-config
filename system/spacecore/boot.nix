@@ -14,12 +14,12 @@
       efi.canTouchEfiVariables = true;
     };
 
-    #kernelPackages =  with pkgs; linuxPackagesFor (linuxKernel.kernels.linux_6_2.override {
-    #kernelPatches = [{
-    #  name = "uwu.patch";
-    #  patch = ./uwu.patch;
-    #}];
-  #});
+    kernelPackages =  with pkgs; linuxPackagesFor (linuxKernel.kernels.linux_6_2.override {
+      kernelPatches = [{
+        name = "uwu.patch";
+        patch = ./uwu.patch;
+      }];
+    });
 
     extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback zenpower ];
     kernelModules = [ "v4l2loopback" "zenpower" ];
