@@ -31,6 +31,7 @@ in
     #factorio
     ghidra-bin
     godot
+    godot_4
     godot-export-templates
     gimp
     git-crypt
