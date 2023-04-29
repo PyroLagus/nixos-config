@@ -20,6 +20,7 @@
     qjackctl
     qsynth
     #renoise
+    furnace
     schismtracker
     qpwgraph
     pw-viz
