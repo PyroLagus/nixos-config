@@ -49,7 +49,7 @@ in
     mosh
     neofetch
     nixpkgs-fmt
-    (obsidian.override {electron = electron_24; })
+    obsidian
     passage
     age-plugin-yubikey
     rage
