@@ -30,6 +30,8 @@
     vhs
     jq
     nurl
+
+    pynitrokey
   ];
 
   programs.zsh = {
