@@ -19,6 +19,7 @@
     niv
     nix-index
     p7zip
+    ripgrep
     ripgrep-all
     rnote
     sd
@@ -30,6 +31,8 @@
     vhs
     jq
     nurl
+    neofetch
+    hyfetch
 
     pynitrokey
   ];

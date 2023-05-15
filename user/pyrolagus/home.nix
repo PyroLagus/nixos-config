@@ -47,7 +47,6 @@ in
     minecraft
     mitmproxy
     mosh
-    neofetch
     nixpkgs-fmt
     obsidian
     passage
