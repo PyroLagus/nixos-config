@@ -7,9 +7,7 @@
     helvum
     musescore
     rosegarden
-    (spotify.override {
-      callPackage = p: attrs: pkgs.callPackage p (attrs // { nss = nss_latest; });
-    })
+    spotify
     cadence
     carla
     furnace
