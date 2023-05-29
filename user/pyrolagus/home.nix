@@ -33,6 +33,7 @@ in
     godot_4
     godot-export-templates
     gimp
+    ffmpeg
     git-crypt
     helm
     hexchat
