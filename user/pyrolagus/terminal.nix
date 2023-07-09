@@ -41,7 +41,7 @@
     enable = true;
     autocd = true;
     enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
 
     shellAliases = {
       e = "exa";
