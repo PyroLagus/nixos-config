@@ -16,7 +16,7 @@
 
     kernelPackages = pkgs.linuxPackages_zen;
 
-    extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback zenpower ];
-    kernelModules = [ "v4l2loopback" "zenpower" ];
+    extraModulePackages = with config.boot.kernelPackages; [ zenpower ];
+    kernelModules = [ "zenpower" ];
   };
 }
