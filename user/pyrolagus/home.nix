@@ -255,6 +255,7 @@ in
   };
 
   programs.firefox.enable = true;
+  programs.chromium.enable = true;
 
   programs.password-store.enable = true;
 
