@@ -34,6 +34,17 @@
   # Disable useless backlight service
   systemd.services."systemd-backlight@backlight:acpi_video0".enable = false;
 
+  systemd.services."remove-mimeapps.list-pyrolagus" = {
+    wantedBy = [ "home-manager-pyrolagus.service" ];
+    before = [ "home-manager-pyrolagus.service" ];
+    description = "Removes pyrolagus' mimeapps.list so that home-manager may start correctly.";
+    serviceConfig = {
+      Type = "oneshot";
+      User = "pyrolagus";
+      ExecStart = ''${pkgs.coreutils}/bin/mv /home/pyrolagus/.config/mimeapps.list /run/user/1000/mimeapps.list'';
+    };
+  };
+
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
