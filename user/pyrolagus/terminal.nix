@@ -89,6 +89,11 @@
   programs.exa = {
     enable = true;
   };
+
+  programs.lsd = {
+    enable = true;
+  };
+
   programs.git = {
     enable = true;
     userName = "Danny Bautista Sanchez";
