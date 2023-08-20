@@ -20,7 +20,7 @@
     nix-index
     p7zip
     ripgrep
-    ripgrep-all
+    #ripgrep-all
     rnote
     sd
     skim
