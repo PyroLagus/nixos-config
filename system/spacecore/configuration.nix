@@ -41,7 +41,7 @@
     serviceConfig = {
       Type = "oneshot";
       User = "pyrolagus";
-      ExecStart = ''${pkgs.coreutils}/bin/mv /home/pyrolagus/.config/mimeapps.list /run/user/1000/mimeapps.list'';
+      ExecStart = ''${pkgs.coreutils}/bin/rm -f /home/pyrolagus/.config/mimeapps.list'';
     };
   };
 
