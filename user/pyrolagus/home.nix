@@ -24,6 +24,7 @@ in
     alacritty
     atool
     atuin
+    beekeeper-studio
     blender
     bluez-tools
     eiskaltdcpp
