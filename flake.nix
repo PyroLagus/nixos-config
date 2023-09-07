@@ -16,6 +16,9 @@
     rust-overlay.url = "github:oxalica/rust-overlay";
     rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.inputs.nixpkgs.follows = "nixpkgs";
+
     private.url = "/home/pyrolagus/.config/dotfiles/private.flake";
     private.inputs.agenix.follows = "agenix";
   };
@@ -34,6 +37,7 @@
       nixosConfigurations = {
         spacecore = nixpkgs.lib.nixosSystem {
           inherit system;
+          specialArgs = { inherit inputs; };
 
           pkgs = import nixpkgs {
             inherit system;
