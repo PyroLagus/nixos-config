@@ -10,6 +10,7 @@
     spotify
     cadence
     carla
+    famistudio
     furnace
     hivelytracker
     klystrack
