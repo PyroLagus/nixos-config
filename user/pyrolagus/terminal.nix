@@ -44,7 +44,7 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
-      e = "exa";
+      e = "eza";
       ns = "nix search nixpkgs";
       z = "zoxide";
     };
@@ -86,7 +86,7 @@
       set expandtab
     '';
   };
-  programs.exa = {
+  programs.eza = {
     enable = true;
   };
 
