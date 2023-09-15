@@ -42,6 +42,7 @@
           pkgs = import nixpkgs {
             inherit system;
             config.allowUnfree = true;
+            #config.contentAddressedByDefault = true;
             overlays = [
               agenix.overlays.default
               rust-overlay.overlays.default
