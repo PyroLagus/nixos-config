@@ -45,7 +45,7 @@ in
     libresprite
     libnotify
     lldb
-    #minecraft
+    minecraft
     mitmproxy
     mosh
     nixpkgs-fmt
