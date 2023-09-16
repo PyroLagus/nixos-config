@@ -73,10 +73,10 @@ in
     zam-plugins
 
     radare2
-    radare2-cutter
+    (radare2-cutter.withPlugins (ps: with ps; [ rz-ghidra sigdb ]))
     iaito
 
-    rizin
+    (rizin.withPlugins (ps: with ps; [ sigdb ]))
 
     angband
     boohu
