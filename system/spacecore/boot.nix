@@ -9,8 +9,11 @@
 
     # Use the systemd-boot EFI boot loader.
     loader = {
-      systemd-boot.enable = true;
-      systemd-boot.memtest86.enable = true;
+      systemd-boot = {
+        enable = true;
+        memtest86.enable = true;
+        configurationLimit = 10;
+      };
       efi.canTouchEfiVariables = true;
     };
 
