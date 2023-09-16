@@ -72,6 +72,10 @@ in
     yt-dlp
     zam-plugins
 
+    radare2
+    radare2-cutter
+    iaito
+
     angband
     boohu
     brogue
