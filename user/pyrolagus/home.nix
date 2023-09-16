@@ -76,6 +76,8 @@ in
     radare2-cutter
     iaito
 
+    rizin
+
     angband
     boohu
     brogue
