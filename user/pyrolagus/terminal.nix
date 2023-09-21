@@ -19,6 +19,7 @@
     niv
     nix-index
     p7zip
+    pijul
     ripgrep
     #ripgrep-all
     rnote
