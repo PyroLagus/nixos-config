@@ -8,7 +8,7 @@
     musescore
     rosegarden
     spotify
-    cadence
+    #cadence
     carla
     famistudio
     furnace

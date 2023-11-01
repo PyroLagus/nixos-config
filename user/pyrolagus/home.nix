@@ -73,7 +73,7 @@ in
     zam-plugins
 
     radare2
-    (radare2-cutter.withPlugins (ps: with ps; [ rz-ghidra sigdb ]))
+    #(radare2-cutter.withPlugins (ps: with ps; [ rz-ghidra sigdb ]))
     iaito
 
     (rizin.withPlugins (ps: with ps; [ sigdb ]))
@@ -106,7 +106,7 @@ in
 
     flips
 
-    retroarchFull
+    #retroarchFull
 
 
     #(pkgs.dwarf-fortress-packages.dwarf-fortress-full.override {
