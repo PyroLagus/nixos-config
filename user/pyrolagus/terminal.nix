@@ -35,7 +35,7 @@
     neofetch
     hyfetch
 
-    pynitrokey
+    #pynitrokey
   ];
 
   programs.zsh = {
