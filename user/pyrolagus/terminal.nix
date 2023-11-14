@@ -88,15 +88,6 @@
     '';
   };
 
-  programs.helix = {
-    enable = true;
-    settings = {
-      editor = {
-        indent-style = 4;
-      };
-    };
-  };
-
   programs.eza = {
     enable = true;
   };
