@@ -24,7 +24,7 @@
     furnace
     schismtracker
     qpwgraph
-    pw-viz
+    #pw-viz
 
     #helio-workstation
     sunvox
