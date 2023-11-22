@@ -96,6 +96,11 @@
     enable = true;
   };
 
+  programs.yazi =
+    {
+      enable = true;
+    };
+
   programs.git = {
     enable = true;
     userName = "Danny Bautista Sanchez";
