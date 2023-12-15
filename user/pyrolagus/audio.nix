@@ -27,7 +27,7 @@
     #pw-viz
 
     #helio-workstation
-    sunvox
+    #sunvox
     yoshimi
     zyn-fusion
     helm
