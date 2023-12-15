@@ -49,7 +49,7 @@ in
     mitmproxy
     mosh
     nixpkgs-fmt
-    obsidian
+    #obsidian
     passage
     age-plugin-yubikey
     rage
