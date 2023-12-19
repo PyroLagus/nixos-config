@@ -23,6 +23,7 @@
           waybar
           wl-clipboard
           wofi
+          wtype
           xdg-desktop-portal-wlr
 
           (writeScriptBin "set-clamshell"
