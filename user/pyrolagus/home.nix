@@ -106,6 +106,8 @@ in
 
     flips
 
+    zoom-us
+
     #retroarchFull
 
 
