@@ -101,6 +101,7 @@
     enable = true;
     desktopManager = {
       xterm.enable = false;
+      runXdgAutostartIfNone = true;
     };
     displayManager.startx.enable = true;
     windowManager.i3 = {
@@ -111,6 +112,14 @@
         i3lock
       ];
     };
+  };
+
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-mozc
+      fcitx5-gtk
+    ];
   };
 
   #boot.initrd.kernelModules = [ "amdgpu" ];
