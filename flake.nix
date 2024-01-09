@@ -39,9 +39,12 @@
           inherit system;
           specialArgs = { inherit inputs; };
 
-          pkgs = import nixpkgs {
+          pkgs = import nixpkgs rec {
             inherit system;
-            config.allowUnfree = true;
+            config = {
+              allowUnfree = true;
+              permittedInsecurePackages = nixpkgs.legacyPackages.${system}.lib.optional (nixpkgs.legacyPackages.${system}.obsidian.version == "1.5.3") "electron-25.9.0";
+            };
             #config.contentAddressedByDefault = true;
             overlays = [
               agenix.overlays.default
