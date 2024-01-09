@@ -75,7 +75,7 @@ in
 
       avahi = {
         enable = cfg.zeroconf.enable;
-        nssmdns = cfg.zeroconf.enable;
+        nssmdns4 = cfg.zeroconf.enable;
       };
     };
   };
