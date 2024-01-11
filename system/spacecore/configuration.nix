@@ -14,6 +14,10 @@
     authFile = config.age.secrets.u2f-mappings.path;
   };
 
+  security.sudo-rs = {
+    enable = true;
+  };
+
   services.udev.packages = [
     (pkgs.writeTextFile {
       name = "nitrokey3-udev-rules";
