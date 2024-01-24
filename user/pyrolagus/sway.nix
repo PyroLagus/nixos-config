@@ -277,5 +277,15 @@ with lib;
         background-color=#ff2222
       '';
     };
+
+    services.wlsunset = {
+      enable = true;
+      latitude = "49.0";
+      longitude = "8.4";
+      temperature = {
+        day = 6500;
+        night = 3000;
+      };
+    };
   };
 }
