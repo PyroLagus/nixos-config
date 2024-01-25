@@ -25,6 +25,7 @@
     schismtracker
     qpwgraph
     #pw-viz
+    praat
 
     #helio-workstation
     #sunvox
