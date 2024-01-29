@@ -92,7 +92,7 @@ in
     nethack
     #nethack-qt
     unnethack
-    cataclysm-dda-git
+    #cataclysm-dda-git
     keeperrl
     rogue
     sil
