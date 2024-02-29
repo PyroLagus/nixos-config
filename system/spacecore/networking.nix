@@ -11,11 +11,16 @@
       };
 
       "lan0" = {
-        hwAddress = "a0:ce:c8:c9:54:03";
+        hwAddress = "26:61:32:e6:33:3a";
         required = false;
       };
     };
     zeroconf.enable = true;
+  };
+
+  networking.interfaces.enp4s0f3u2 = {
+    useDHCP = true;
+
   };
 
   hardware.bluetooth.enable = true;
