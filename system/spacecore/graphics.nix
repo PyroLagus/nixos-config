@@ -12,7 +12,6 @@
           gnome.adwaita-icon-theme
           grim
           mako
-          pinentry-gnome
           playerctl
           sarasa-gothic
           slurp
@@ -97,22 +96,22 @@
   };
 
   environment.pathsToLink = [ "/libexec" ];
-  services.xserver = {
-    enable = true;
-    desktopManager = {
-      xterm.enable = false;
-      runXdgAutostartIfNone = true;
-    };
-    displayManager.startx.enable = true;
-    windowManager.i3 = {
-      enable = true;
-      extraPackages = with pkgs; [
-        dmenu
-        i3status
-        i3lock
-      ];
-    };
-  };
+  #services.xserver = {
+  #  enable = true;
+  #  desktopManager = {
+  #    xterm.enable = false;
+  #    runXdgAutostartIfNone = true;
+  #  };
+  #  displayManager.startx.enable = true;
+  #windowManager.i3 = {
+  #  enable = true;
+  #  extraPackages = with pkgs; [
+  #    dmenu
+  #    i3status
+  #    i3lock
+  #  ];
+  #};
+  #};
 
   i18n.inputMethod = {
     enabled = "fcitx5";

@@ -41,7 +41,7 @@
   programs.zsh = {
     enable = true;
     autocd = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
     shellAliases = {
