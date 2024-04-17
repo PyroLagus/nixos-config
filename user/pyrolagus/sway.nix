@@ -157,8 +157,8 @@ with lib;
             "XF86AudioMute" = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
             "XF86AudioMicMute" = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
 
-            "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl -d amdgpu_bl0 s 10%-";
-            "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl -d amdgpu_bl0 s +10%";
+            "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl -d 'amdgpu_bl*' s 10%-";
+            "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl -d 'amdgpu_bl*' s +10%";
 
             "Print" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot save output \"${config.home.homeDirectory}/Pictures/screenshots/\$(${pkgs.coreutils}/bin/date --iso-8601=ns).png\"";
             "Shift+Print" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area";
