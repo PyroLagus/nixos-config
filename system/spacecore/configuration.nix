@@ -85,7 +85,6 @@
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
-    agenix
     htop
     lm_sensors
     man-pages

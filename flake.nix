@@ -10,9 +10,6 @@
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
 
-    rust-overlay.url = "github:oxalica/rust-overlay";
-    rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
-
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -20,7 +17,7 @@
     private.inputs.agenix.follows = "agenix";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, agenix, rust-overlay, private, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, agenix, private, ... }:
     let
       system = "x86_64-linux";
       #mkUser = username: {
@@ -39,10 +36,6 @@
               allowUnfree = true;
             };
             #config.contentAddressedByDefault = true;
-            overlays = [
-              agenix.overlays.default
-              rust-overlay.overlays.default
-            ];
           };
 
           modules = [
@@ -61,14 +54,12 @@
                   from = { id = "nixpkgs"; type = "indirect"; };
                   flake = nixpkgs;
                 };
-
-                rust-overlay = {
-                  from = { id = "rust-overlay"; type = "indirect"; };
-                  flake = rust-overlay;
-                };
               };
             }
             agenix.nixosModules.default
+            {
+              environment.systemPackages = [ agenix.packages.${system}.default ];
+            }
             private.nixosModules.agenixSecrets
             home-manager.nixosModules.home-manager
             {

@@ -118,10 +118,10 @@ in
     #})
     #dwarf-therapist
 
-    (rust-bin.stable.latest.default.override {
-      extensions = [ "rust-src" ];
-    })
-    rust-analyzer
+    #    (rust-bin.stable.latest.default.override {
+    ##      extensions = [ "rust-src" ];
+    #    })
+    #    rust-analyzer
     coq
 
     (writeScriptBin "system-flake-update"
