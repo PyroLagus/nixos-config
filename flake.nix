@@ -3,9 +3,6 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs-unstable.url = "nixpkgs/nixpkgs-unstable";
-    nixpkgs-stable.url = "nixpkgs/nixos-22.11";
-    nixpkgs-main.url = "github:NixOS/nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -23,12 +20,9 @@
     private.inputs.agenix.follows = "agenix";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, nixpkgs-main, home-manager, agenix, rust-overlay, private, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, agenix, rust-overlay, private, ... }:
     let
       system = "x86_64-linux";
-      unstable-overlay = final: prev: { unstable = nixpkgs-unstable.legacyPackages."${system}"; };
-      stable-overlay = final: prev: { stable = nixpkgs-stable.legacyPackages."${system}"; };
-      main-overlay = final: prev: { main = nixpkgs-main.legacyPackages."${system}"; };
       #mkUser = username: {
       #  home-manager.users."${username}" = (import ./home-manager/common.nix) // (import ./home-manager/users/"${username}");
       #};
@@ -43,7 +37,6 @@
             inherit system;
             config = {
               allowUnfree = true;
-              permittedInsecurePackages = nixpkgs.legacyPackages.${system}.lib.optional (nixpkgs.legacyPackages.${system}.obsidian.version == "1.5.3") "electron-25.9.0";
             };
             #config.contentAddressedByDefault = true;
             overlays = [
@@ -67,11 +60,6 @@
                 nixpkgs = {
                   from = { id = "nixpkgs"; type = "indirect"; };
                   flake = nixpkgs;
-                };
-
-                nixpkgs-main = {
-                  from = { id = "nixpkgs-main"; type = "indirect"; };
-                  flake = nixpkgs-main;
                 };
 
                 rust-overlay = {
