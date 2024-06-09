@@ -36,7 +36,7 @@
             '')
         ];
     };
-    hyprland.enable = true;
+    #hyprland.enable = true;
   };
 
   fonts = {

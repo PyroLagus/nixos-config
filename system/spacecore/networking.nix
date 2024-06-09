@@ -5,7 +5,7 @@
     enable = true;
     interfaces = {
       "wlan0" = {
-        enable = false;
+        enable = true;
         hwAddress = "e4:aa:ea:f8:57:5f";
         required = true;
         isWireless = true;
