@@ -2,7 +2,7 @@
 
 {
   scfg.networking = {
-    enable = true;
+    enable = false;
     interfaces = {
       "wlan0" = {
         enable = true;
@@ -23,13 +23,21 @@
         required = false;
       };
     };
+
+
     zeroconf.enable = true;
   };
 
-  networking.interfaces.enp4s0f3u2 = {
-    useDHCP = true;
+  #networking.interfaces.enp4s0f3u1u1u3 =
+  #  {
+  #    useDHCP = true;
+  #  };
 
-  };
+  #networking.interfaces.enp4s0f3u2 = {
+  #  useDHCP = true;
+  #};
+
+  networking.networkmanager.enable = true;
 
   hardware.bluetooth.enable = true;
 
