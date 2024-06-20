@@ -1,43 +1,19 @@
 { config, pkgs, lib, nixpkgs, ... }:
 
 {
-  scfg.networking = {
-    enable = false;
-    interfaces = {
-      "wlan0" = {
-        enable = true;
-        hwAddress = "e4:aa:ea:f8:57:5f";
-        required = true;
-        isWireless = true;
-      };
+  networking.networkmanager.enable = true;
 
-      "wlan1" =
-        {
-          hwAddress = "24:2f:d0:d9:30:cd";
-          required = false;
-          isWireless = true;
-        };
-
-      "lan0" = {
-        hwAddress = "26:61:32:e6:33:3a";
-        required = false;
-      };
+  services = {
+    resolved = {
+      enable = true;
+      dnssec = "true";
     };
 
-
-    zeroconf.enable = true;
+    avahi = {
+      enable = cfg.zeroconf.enable;
+      nssmdns4 = cfg.zeroconf.enable;
+    };
   };
-
-  #networking.interfaces.enp4s0f3u1u1u3 =
-  #  {
-  #    useDHCP = true;
-  #  };
-
-  #networking.interfaces.enp4s0f3u2 = {
-  #  useDHCP = true;
-  #};
-
-  networking.networkmanager.enable = true;
 
   hardware.bluetooth.enable = true;
 
