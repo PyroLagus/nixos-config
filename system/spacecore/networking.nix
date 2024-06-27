@@ -10,8 +10,8 @@
     };
 
     avahi = {
-      enable = cfg.zeroconf.enable;
-      nssmdns4 = cfg.zeroconf.enable;
+      enable = true;
+      nssmdns4 = true;
     };
   };
 
@@ -19,7 +19,7 @@
 
   services.openssh.enable = true;
 
-  networking.useNetworkd = true;
+  networking.useNetworkd = false;
 
   programs.wireshark.enable = true;
 
