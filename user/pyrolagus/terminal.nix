@@ -35,6 +35,8 @@
     neofetch
     hyfetch
 
+    wavemon
+
     #pynitrokey
   ];
 

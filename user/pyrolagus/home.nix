@@ -106,6 +106,8 @@ in
 
     flips
 
+    unityhub
+
     #zoom-us
 
     #retroarchFull
