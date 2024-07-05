@@ -105,7 +105,7 @@
 
   programs.git = {
     enable = true;
-    userName = "Danny Bautista Sanchez";
+    userName = "Mia Jasmin Bautista Sanchez";
     userEmail = "mail@pyrolagus.de";
     extraConfig = {
       init.defaultBranch = "main";
